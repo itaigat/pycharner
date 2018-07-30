@@ -11,7 +11,7 @@ Implementation of ["Named Entity Recognition with Character-Level Models"](https
 This model characters are emitted one at a time and there is one state per character, each state's identity depends only on the previous state and each character's identity depends on both the current state and on the previous n-1 characters. 
 In the figure below, we can see the HMM where C nodes are characters and S nodes are states.
 
-![https://ibb.co/hOZC3o]()
+![](https://ibb.co/hOZC3o)
 
 ### A Character-Based CMM (MEMM)
 
