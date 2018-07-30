@@ -2,7 +2,9 @@
 
 ## Main Goal
 
-Implementation of ["Named Entity Recognition with Character-Level Models"](https://nlp.stanford.edu/manning/papers/conll-ner.pdf) by Dan Klein, Joseph Smarr, Huy Nguyen and Christopher D. 
+* Implementation of ["Named Entity Recognition with Character-Level Models"](https://nlp.stanford.edu/manning/papers/conll-ner.pdf) by Dan Klein, Joseph Smarr, Huy Nguyen and Christopher D. 
+
+* Try to adopt the paper idea to Hebrew
 
 ## Models
 
