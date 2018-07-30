@@ -27,6 +27,6 @@ This model each state's identity depends on the it's corresponding character the
    * **PER** (person)
    * **MISC** (miscellaneous). 
 
-The dataset is divided into train set (946 articles), test set (231 articles) and development set (216 articles). 
+  The dataset is divided into train set (946 articles), test set (231 articles) and development set (216 articles). 
 
 * **Sport5** (Hebrew) - includes blabla 
