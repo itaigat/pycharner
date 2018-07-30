@@ -2,484 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Itai_Gat.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pycharner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pycharner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/407.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/408.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/409.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/410.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/411.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/412.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/413.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/414.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/415.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/416.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/417.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/418.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/419.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/420.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/421.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/422.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/423.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/424.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/425.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/426.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/427.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/428.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/429.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/430.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/431.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/432.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/433.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/434.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/435.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/436.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/437.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/438.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/439.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/440.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/441.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/442.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/443.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/444.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/445.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/446.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/447.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/448.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/449.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/450.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/451.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/452.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/453.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/454.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/455.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/463.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/464.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/465.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/466.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/467.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/468.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/469.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/472.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/473.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/477.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/478.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/479.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/480.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/481.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/482.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/483.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/484.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/485.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/486.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/487.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/488.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/489.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/490.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/491.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/492.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/493.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/494.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/495.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/496.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/497.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/498.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/499.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/500.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/501.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/502.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/503.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/504.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/505.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/506.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/507.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/508.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/509.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/510.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/511.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/512.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/513.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/514.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/515.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/516.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/517.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/518.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/519.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/520.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/521.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/522.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/523.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/524.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/525.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/526.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/527.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/528.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/529.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/531.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/532.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/533.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/534.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/535.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/536.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/537.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/538.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/539.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/540.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/541.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/542.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/543.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/544.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/545.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/546.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/547.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/548.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/549.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/550.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/551.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/552.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/553.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/554.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/555.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/556.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/557.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/558.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/559.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/560.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/561.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/562.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/563.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/564.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/565.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/566.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/567.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/568.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/569.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/571.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/572.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/573.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/574.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/580.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/581.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/582.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/583.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/584.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/585.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/586.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/587.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/588.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/589.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/590.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/591.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/592.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/593.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/594.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/595.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/596.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/597.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/598.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/601.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/609.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/610.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/611.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/612.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/613.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/614.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/615.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/616.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/617.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/618.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/619.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/620.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/621.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/622.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/623.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/625.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/626.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/627.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/629.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/630.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/631.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/632.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/633.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/634.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/635.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/636.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/637.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/638.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/639.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/642.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/643.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/644.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/649.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/650.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/651.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/652.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/656.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/657.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/658.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/659.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/660.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/661.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/664.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/666.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/667.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/668.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/669.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/670.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/671.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/674.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/675.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/676.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/679.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/680.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/683.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/684.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/685.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/686.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/687.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/690.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/691.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/692.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/693.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/694.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/695.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/696.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/697.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/698.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/699.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/702.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/703.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/704.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/705.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/706.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/707.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/708.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/709.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/715.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/716.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/717.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/719.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/720.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/721.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/722.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/724.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/725.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/726.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/727.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/728.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/729.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/730.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/734.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/735.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/737.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/738.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/739.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/740.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/741.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/742.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/743.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/744.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/745.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/751.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/752.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/753.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/754.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/755.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/756.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/757.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/758.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/759.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/760.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/761.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/762.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/763.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/764.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/765.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/766.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/767.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/768.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/769.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/770.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/771.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/772.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/773.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/774.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/775.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/776.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/777.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/778.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/779.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/781.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/782.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/783.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/784.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/785.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/786.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/787.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/788.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/791.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/792.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/793.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/794.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/795.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/796.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/798.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/799.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/800.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/801.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/802.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/803.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/804.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/805.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/806.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/807.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/808.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/809.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/810.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/811.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/812.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/814.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/815.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/816.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/817.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/818.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/819.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/820.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/821.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/822.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/823.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/824.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/825.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/826.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/827.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/828.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/829.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/830.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/831.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/832.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/833.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/834.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/835.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/836.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/837.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/838.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/839.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/840.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/841.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/842.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/843.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/844.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/845.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/846.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/847.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/848.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/849.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/850.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/851.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/852.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/853.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/854.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/855.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/856.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/857.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/858.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/859.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/860.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/861.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/862.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/863.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/864.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/865.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/866.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/867.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/868.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/869.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/870.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/871.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/872.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/873.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/874.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/875.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/876.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/877.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/878.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/879.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/880.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/881.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/882.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/883.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/884.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/885.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/886.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/887.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/888.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/893.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/894.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/895.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/896.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/897.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/898.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/899.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/900.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/901.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/902.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/903.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/904.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/905.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/906.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/907.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/908.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/909.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/910.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/911.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/912.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/913.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/917.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/918.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/919.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/920.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/921.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/922.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/923.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/924.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/925.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/926.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/927.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/928.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/929.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/930.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/931.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/932.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/933.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/934.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/937.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/938.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/939.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/940.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/941.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/943.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/948.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/949.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/950.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/951.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/952.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/953.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/959.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/966.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/970.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/971.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/977.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/978.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/981.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/982.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/985.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/986.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/992.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/997.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/decoder.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -495,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -507,27 +29,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="decoder.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="decoder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/decoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="78" column="45" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="45" />
+            <state relative-caret-position="185">
+              <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#92#1195#0" />
-                <element signature="e#1231#2109#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
+            <state relative-caret-position="204">
               <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="score.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/score.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -555,9 +85,9 @@
         <option value="$PROJECT_DIR$/MEMM.py" />
         <option value="$PROJECT_DIR$/score.py" />
         <option value="$PROJECT_DIR$/decoder.py" />
-        <option value="$PROJECT_DIR$/utils/decoder.py" />
         <option value="$PROJECT_DIR$/utils/common.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/utils/decoder.py" />
       </list>
     </option>
   </component>
@@ -704,6 +234,14 @@
       <option name="presentableId" value="Default" />
       <updated>1532940295682</updated>
     </task>
+    <task id="LOCAL-00001" summary="Decoder v0.1">
+      <created>1532984228229</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532984228229</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -720,13 +258,13 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291592" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3291592" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32982457" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291592" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32807016" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32200357" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32200357" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32807016" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2574899" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2574899" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -747,6 +285,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Decoder v0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Decoder v0.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -830,8 +372,6 @@
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#92#1195#0" />
-            <element signature="e#1231#2109#0" />
           </folding>
         </state>
       </provider>
@@ -899,31 +439,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/decoder.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="78" column="45" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="45" />
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#92#1195#0" />
-            <element signature="e#1231#2109#0" />
+            <element signature="e#0#52#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
+        <state relative-caret-position="204">
           <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/utils/score.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        <state relative-caret-position="185">
+          <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
