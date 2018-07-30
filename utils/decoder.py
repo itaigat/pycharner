@@ -69,7 +69,7 @@ class CoNLLDataset(Dataset):
                     tags += [tag]
 
                     """
-                    In case you want a sentence and not a word - take off the comment below
+                    In case you want a word and not a sentence - take off the comment below
                     yield [word], [tag] 
                     """
 
