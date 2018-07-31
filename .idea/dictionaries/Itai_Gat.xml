@@ -2,6 +2,7 @@
   <dictionary name="Itai Gat">
     <words>
       <w>maxlen</w>
+      <w>viterbi</w>
     </words>
   </dictionary>
 </component>
