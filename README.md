@@ -19,7 +19,7 @@ In the figure below, we can see the HMM where C nodes are characters and S nodes
 
 This model each state's identity depends on the it's corresponding character the previous state and additional features that can include additional previous states or characters, part of speech, or capitalization indicator (for corresponding character or previous), given this model we will use Viterbi algorithm to find the most likely labeling. 
 
-## Dataset
+## Datasets
 
 * **CoNLL 2003** (English) -  includes 1,393 English articles where 4 entity types are labeled:
    * **LOC** (location)
