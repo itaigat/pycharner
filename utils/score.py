@@ -13,13 +13,13 @@ def precision(predicted, true, e_type='ALL'):
     if len(predicted) != len(true) or len(true) == 0 or len(predicted) == 0:
         return 0.0
 
-    if e_type != 'ALL':
-        for i in range(predicted):
+    if e_type == 'ALL':
+        for i in range(len(predicted)):
             if predicted[i] == true[i]:
                 true_counter += 1
         retrieved_counter = len(predicted)
     else:
-        for i in range(predicted):
+        for i in range(len(predicted)):
             if predicted[i] == e_type:
                 retrieved_counter += 1
                 if predicted[i] == true[i]:
@@ -42,13 +42,13 @@ def recall(predicted, true, e_type='ALL'):
     if len(predicted) != len(true) or len(true) == 0 or len(predicted) == 0:
         return 0.0
 
-    if e_type != 'ALL':
-        for i in range(predicted):
+    if e_type == 'ALL':
+        for i in range(len(predicted)):
             if predicted[i] == true[i]:
                 true_counter += 1
         relevant_counter = len(true)
     else:
-        for i in range(predicted):
+        for i in range(len(predicted)):
             if predicted[i] == true[i] == e_type:
                 true_counter += 1
             if true[i] == e_type:
@@ -69,3 +69,42 @@ def F1(predicted, true, e_type='ALL'):
     recall_score = precision(predicted, true, e_type)
 
     return 2 * ((precision_score * recall_score) / (precision_score + recall_score))
+
+def turn_char_predictions_to_word_predictions(observations,char_predictions):
+    """
+    :param observations: obs list as entered to the hmm viterbi
+    :param char_predictions: list of prediction that is the viterbi output
+    :return: list of words and list of word predictions
+    """
+    words = []
+    predictions = []
+
+    curr_word = ''
+    curr_pred = ''
+    for i in range(len(observations)):
+        curr_char = observations[i][-1:]
+        pred = char_predictions[i]
+
+        if curr_char == '_':
+            # when there is a space move to other word
+            if curr_word != '':
+                words.append(curr_word)
+                predictions.append(curr_pred)
+            curr_word = ''
+            curr_pred = ''
+            continue
+
+        if curr_pred == '':
+            curr_pred = pred[0]
+
+        curr_word += curr_char
+
+        if curr_pred != pred[0]:
+            print('Unexpected predicrion problem got:' + str(pred) + ' in same word of ' + curr_pred)
+
+    return words, predictions
+
+
+
+
+

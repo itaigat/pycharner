@@ -1,10 +1,12 @@
 from utils.decoder import CoNLLDataset
+from utils import score
 from .preprocess import pre_process_CoNLLDataset
+from .preprocess import pre_process_CoNLLDataset_for_score_test
 from .paramaters import paths
 from models.algorithms import Viterbi
 
 class HMM:
-    def __init__(self, number_of_history_chars=6, dataset='CoNLL2003'):
+    def __init__(self, number_of_history_chars=5, dataset='CoNLL2003'):
         self.number_of_history_chars = number_of_history_chars
 
         if dataset == 'CoNLL2003':
@@ -14,7 +16,7 @@ class HMM:
 
             self.train_chars, self.train_labels = pre_process_CoNLLDataset(self.train)
             self.test_chars, self.test_labels = pre_process_CoNLLDataset(self.test)
-            self.valid_chars, self.valid_labels = pre_process_CoNLLDataset(self.valid)
+            self.valid_chars, self.valid_labels = pre_process_CoNLLDataset(self.valid, row_limit=None)
 
         elif dataset == 'Sport5':
             pass
@@ -22,23 +24,54 @@ class HMM:
             raise NotImplementedError
 
 
-        state_prior_dict, transition_dict, emission_dict = self.create_all_probabilities_for_viterbi(self.train_chars,
+        state_prior_dict, transition_dict, emission_dict, smoothing_factor = self.create_all_probabilities_for_viterbi(self.train_chars,
                                                                                                      self.train_labels,
                                                                                                      number_of_history_chars)
-        devel_obs = self.create_obs_list(self.valid_chars, number_of_history_chars)
-        # print(transition_dict)
-        vt_res = Viterbi.viterbi_for_hmm(obs=tuple(devel_obs),
-                                         states=tuple(set(self.train_labels)),
-                                         start_p=state_prior_dict,
-                                         trans_p=transition_dict,
-                                         emit_p=emission_dict,
-                                         non_history_obs='_' * number_of_history_chars)
-        print(vt_res)
+        # devel_obs = self.create_obs_list(self.valid_chars, number_of_history_chars)
+        # # print(transition_dict)
+        # vt_res = Viterbi.viterbi_for_hmm(obs=tuple(devel_obs),
+        #                                  states=tuple(set(self.train_labels)),
+        #                                  start_p=state_prior_dict,
+        #                                  trans_p=transition_dict,
+        #                                  emit_p=emission_dict,
+        #                                  non_history_obs='_' * number_of_history_chars,
+        #                                  smoothing_factor=smoothing_factor)
+        # print('Viterbi Ended With Proba: ' + str(vt_res[0]))
+        # output_words, output_pred = score.turn_char_predictions_to_word_predictions(tuple(devel_obs),vt_res[1])
+
+        output_words, output_pred = self.test_dataset(
+                                             dataset_chars = self.valid_chars,
+                                             number_of_history_chars = number_of_history_chars,
+                                             states = set(self.train_labels),
+                                             state_prior_dict = state_prior_dict,
+                                             transition_dict = transition_dict,
+                                             emission_dict = emission_dict,
+                                             non_history_obs = '_' * number_of_history_chars,
+                                             smoothing_factor = smoothing_factor)
+        actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
+        if tuple(output_words) != tuple(actual_words):
+            print ('Word align critical problem !!')
+        report_str = 'Run Summary:\nNumber of history chars in test:' + str(number_of_history_chars) + '\n'
+
+        for label_type in (list(set(actual_pred)) + ['ALL']):
+            p_score = score.precision(output_pred, actual_pred, e_type=label_type)
+            r_score = score.recall(output_pred, actual_pred, e_type=label_type)
+            f1_score = score.F1(output_pred, actual_pred, e_type = label_type)
+            report_str += "For " + str(label_type) + ":\nPrecision: " + str(p_score) + "\n"
+            report_str += "Recall: " + str(r_score) + "\nF1 Score:" + str(f1_score) + "\n"
+        print(str(report_str))
+        with open('HMM_Run_Summary.txt', 'w') as f:
+            f.write(report_str)
+
+
+
+
 
     def create_all_probabilities_for_viterbi(self,
                                              characters,
                                              char_labels,
-                                             history_len):
+                                             history_len,
+                                             smoothed = True):
 
             """
             :param characters: list of characters (of train set)
@@ -120,22 +153,43 @@ class HMM:
                     # adds 0 probability to unreachable states
                     if state not in transition_dict[outer_state]:
                         transition_dict[outer_state][state] = 0.0
+            if smoothed == True:
+                num_of_unique_chars = len(set(characters))
 
             # for prior probabilities
             for state in state_prior_dict:
                 state_prior_dict[state] = state_prior_dict[state] / float(total_chars)
             # for emission probabilities: (smoothing needed)
             for given_data in emission_dict:
+                num_of_existing_options = 0
                 for predicted_data in emission_dict[given_data]:
+                    num_of_existing_options += 1
                     emission_dict[given_data][predicted_data] = emission_dict[given_data][predicted_data] / float(
                         observations_state_counter_dict[given_data])
+                if smoothed == True:
+                    # factor to normalize probabilities
+                    factor = 1 + (num_of_unique_chars - num_of_existing_options) / float(num_of_unique_chars)
+                    for predicted_data in emission_dict[given_data]:
+                            emission_dict[given_data][predicted_data] = emission_dict[given_data][predicted_data] / float( factor )
+                    emission_dict[given_data]['Smoothing Factor'] = (1.0/num_of_unique_chars)/factor
 
-            return state_prior_dict, transition_dict, emission_dict
+            if smoothed == True:
+                smooth_factor = 1.0/num_of_unique_chars
+            else:
+                smooth_factor = 0.0
+
+            return state_prior_dict, transition_dict, emission_dict, smooth_factor
+
 
 
     def create_obs_list(self,
                         characters,
                         history_len):
+        """
+        :param characters: list of characters
+        :param history_len: length of history used characters
+        :return: observation list ready for viterbi
+        """
         observations = []
         history_obs = '_' * history_len
         # observations.append(history_obs)
@@ -154,3 +208,47 @@ class HMM:
 
         return observations
 
+    def test_dataset(self,
+                     dataset_chars,
+                     number_of_history_chars,
+                     states,
+                     state_prior_dict,
+                     transition_dict,
+                     emission_dict,
+                     non_history_obs,
+                     smoothing_factor):
+        """
+        :param dataset_chars: list of chars
+        :param states: set of states
+        :param state_prior_dict: prior probabilities for each state
+        :param transition_dict: transition probabilities between states
+        :param emission_dict: emission probabilities dict
+        :param non_history_obs: the begining of a sentence history observation
+        :param smoothing_factor: smoothing factor for unseen emission forms
+        :return: list of words with list of word predictions
+        """
+        output_words = []
+        output_pred = []
+        num_of_processed_sent = 0
+        temp_chars = []
+        for char in dataset_chars:
+            if char == '\n':
+                obs_for_viterbi = self.create_obs_list(temp_chars , number_of_history_chars)
+                vt_res = Viterbi.viterbi_for_hmm(obs=tuple(obs_for_viterbi),
+                                                 states=tuple(states),
+                                                 start_p=state_prior_dict,
+                                                 trans_p=transition_dict,
+                                                 emit_p=emission_dict,
+                                                 non_history_obs=non_history_obs,
+                                                 smoothing_factor=smoothing_factor)
+                temp_output_words, temp_output_pred = score.turn_char_predictions_to_word_predictions(obs_for_viterbi, vt_res[1])
+                output_words.extend(temp_output_words)
+                output_pred.extend(temp_output_pred)
+                num_of_processed_sent += 1
+                print('Sentence Processed :' + str(num_of_processed_sent) + ' , Viterbi Proba: ' + str(vt_res[0]))
+
+                temp_chars = []
+            else:
+                temp_chars.append(char)
+
+        return output_words, output_pred

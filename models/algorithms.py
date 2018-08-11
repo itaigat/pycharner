@@ -44,14 +44,17 @@ class Viterbi:
         return Viterbi.viterbi(observations, states, start_probability, transition_probability, emission_probability)
 
     @staticmethod
-    def viterbi_for_hmm(obs, states, start_p, trans_p, emit_p, non_history_obs):
+    def viterbi_for_hmm(obs, states, start_p, trans_p, emit_p, non_history_obs, smoothing_factor):
         V = [{}]
         path = {}
         for y in states:
-            if ((non_history_obs, y) in emit_p) and (obs[0] in emit_p[(non_history_obs, y)]):
-                V[0][y] = start_p[y] * emit_p[(non_history_obs, y)][obs[0]]
+            if ((non_history_obs, y) in emit_p):
+                if (obs[0] in emit_p[(non_history_obs, y)]):
+                    V[0][y] = start_p[y] * emit_p[(non_history_obs, y)][obs[0]]
+                else:
+                    V[0][y] = start_p[y] * emit_p[(non_history_obs, y)]['Smoothing Factor']
             else:
-                V[0][y] = 0.0
+                V[0][y] = start_p[y] * smoothing_factor
             path[y] = [y]
         print('Viterbi Number Of Obs:' + str(len(obs)))
         for t in range(1, len(obs)):
@@ -63,10 +66,14 @@ class Viterbi:
                 max_prob = - 1
                 former_state = None
                 for y0 in states:
-                    if ((obs[t - 1], y) in emit_p) and (obs[t] in emit_p[(obs[t - 1], y)]):
-                        cur_prob = V[t - 1][y0] * trans_p[y0][y] * emit_p[(obs[t - 1], y)][obs[t]]
+                    if ((obs[t - 1], y) in emit_p):
+                        if (obs[t] in emit_p[(obs[t - 1], y)]):
+                            cur_prob = V[t - 1][y0] * trans_p[y0][y] * emit_p[(obs[t - 1], y)][obs[t]]
+                        else:
+                            cur_prob = V[t - 1][y0] * trans_p[y0][y] * emit_p[(obs[t - 1], y)]['Smoothing Factor']
                     else:
-                        cur_prob = 0.0
+                        cur_prob = V[t - 1][y0] * trans_p[y0][y] * smoothing_factor
+
                     if cur_prob > max_prob:
                         max_prob = cur_prob
                         former_state = y0
@@ -75,6 +82,13 @@ class Viterbi:
 
             path = newpath
 
-        prob, state = max([(V[len(obs) - 1][y], y) for y in states])
+        prob = -1
+        for y in states:
+            cur_prob = V[len(obs) - 1][y]
+            if cur_prob > prob:
+                prob = cur_prob
+                state = y
+
+        # prob, state = max([(V[len(obs) - 1][y], y) for y in states])
 
         return prob, path[state]
