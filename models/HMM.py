@@ -4,7 +4,7 @@ from .paramaters import paths
 from models.algorithms import Viterbi
 
 class HMM:
-    def __init__(self, number_of_history_chars=3, dataset='CoNLL2003'):
+    def __init__(self, number_of_history_chars=6, dataset='CoNLL2003'):
         self.number_of_history_chars = number_of_history_chars
 
         if dataset == 'CoNLL2003':
@@ -25,7 +25,7 @@ class HMM:
         state_prior_dict, transition_dict, emission_dict = self.create_all_probabilities_for_viterbi(self.train_chars,
                                                                                                      self.train_labels,
                                                                                                      number_of_history_chars)
-        devel_obs = self.create_obs_list(self.devel_chars, number_of_history_chars)
+        devel_obs = self.create_obs_list(self.valid_chars, number_of_history_chars)
         # print(transition_dict)
         vt_res = Viterbi.viterbi_for_hmm(obs=tuple(devel_obs),
                                          states=tuple(set(self.train_labels)),
@@ -35,10 +35,10 @@ class HMM:
                                          non_history_obs='_' * number_of_history_chars)
         print(vt_res)
 
-        def create_all_probabilities_for_viterbi(self,
-                                                 characters,
-                                                 char_labels,
-                                                 history_len):
+    def create_all_probabilities_for_viterbi(self,
+                                             characters,
+                                             char_labels,
+                                             history_len):
 
             """
             :param characters: list of characters (of train set)

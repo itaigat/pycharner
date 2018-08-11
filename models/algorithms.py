@@ -48,7 +48,7 @@ class Viterbi:
         V = [{}]
         path = {}
         for y in states:
-            if (non_history_obs, y) in emit_p:
+            if ((non_history_obs, y) in emit_p) and (obs[0] in emit_p[(non_history_obs, y)]):
                 V[0][y] = start_p[y] * emit_p[(non_history_obs, y)][obs[0]]
             else:
                 V[0][y] = 0.0
