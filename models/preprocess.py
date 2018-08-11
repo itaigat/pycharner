@@ -39,7 +39,5 @@ def pre_process_CoNLLDataset(dataset):
         characters.append('_')
         # check if this is the correct state
         char_labels.append(('O', 'F'))
-    print(characters)
-    print(char_labels)
 
     return characters, char_labels
