@@ -17,7 +17,7 @@ class Viterbi:
             V.append({})
             newpath = {}
             for y in states:
-                (prob, state) = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]], y0) for y0 in states])
+                prob, state = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]], y0) for y0 in states])
                 V[t][y] = prob
                 newpath[y] = path[state] + [y]
             path = newpath

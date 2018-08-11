@@ -3,10 +3,10 @@ from os import rename, listdir, path
 
 def zfill_files(folder):
     """
-    This function takes a folder and standarts all the files to the same length
-    for example:
+    This function takes a folder and standards all the files to the same length
+    For example:
     ['1.xml', '23.xml'] -> ['01.xml', 23.xml']
-    :param folder: Folder you want to change
+    :param folder: Path to the folder you wish to change
     """
 
     files = [f for f in listdir(folder)]

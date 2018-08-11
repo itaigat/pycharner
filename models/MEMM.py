@@ -1,0 +1,2 @@
+class MEMM:
+    pass
