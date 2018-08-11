@@ -42,3 +42,39 @@ class Viterbi:
         }
 
         return Viterbi.viterbi(observations, states, start_probability, transition_probability, emission_probability)
+
+    @staticmethod
+    def viterbi_for_hmm(obs, states, start_p, trans_p, emit_p, non_history_obs):
+        V = [{}]
+        path = {}
+        for y in states:
+            if (non_history_obs, y) in emit_p:
+                V[0][y] = start_p[y] * emit_p[(non_history_obs, y)][obs[0]]
+            else:
+                V[0][y] = 0.0
+            path[y] = [y]
+        print('Viterbi Number Of Obs:' + str(len(obs)))
+        for t in range(1, len(obs)):
+            if t % 1000 == 0:
+                print('Viterbi Number Of Obs Processed:' + str(t))
+            V.append({})
+            newpath = {}
+            for y in states:
+                max_prob = - 1
+                former_state = None
+                for y0 in states:
+                    if ((obs[t - 1], y) in emit_p) and (obs[t] in emit_p[(obs[t - 1], y)]):
+                        cur_prob = V[t - 1][y0] * trans_p[y0][y] * emit_p[(obs[t - 1], y)][obs[t]]
+                    else:
+                        cur_prob = 0.0
+                    if cur_prob > max_prob:
+                        max_prob = cur_prob
+                        former_state = y0
+                V[t][y] = max_prob
+                newpath[y] = path[former_state] + [y]
+
+            path = newpath
+
+        prob, state = max([(V[len(obs) - 1][y], y) for y in states])
+
+        return prob, path[state]
