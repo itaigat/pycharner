@@ -9,17 +9,23 @@ def pre_process_CoNLLDataset(dataset):
     rows = dataset.__str__().split('\n')
     words = []
     word_labels = []
+
     for i in range(0, len(rows) - 1, 2):
-        # need to add handling \n
+        # TODO: add '/n' handling
         words.extend(rows[i].split(' '))
         word_labels.extend(rows[i + 1].split(' '))
+
     if len(words) != len(word_labels):
-        print('pre_process_data problem - words and word labels are not alienged')
+        print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
+        raise ValueError
+
     characters = []
     char_labels = []
+
     for j in range(len(words)):
         word = words[j]
         word_label = word_labels[j]
+
         if 'LOC' in word_label:
             word_label = 'LOC'
         elif 'MISC' in word_label:
@@ -31,11 +37,12 @@ def pre_process_CoNLLDataset(dataset):
         for i in range(len(word)):
             characters.append(word[i])
             if i == (len(word) - 1):
-                # the final char of the word gets label (ord_label, 'F')
+                # The final char of the word gets label (ord_label, 'F')
                 char_labels.append((word_label, 'F'))
             else:
                 char_labels.append((word_label, i + 1))
-        # also add spaces
+
+        # Add spaces
         characters.append('_')
         # check if this is the correct state
         char_labels.append(('O', 'F'))
