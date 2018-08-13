@@ -74,7 +74,8 @@ def F1(predicted, true, e_type='ALL'):
 
     return 2 * ((precision_score * recall_score) / (precision_score + recall_score))
 
-def turn_char_predictions_to_word_predictions(observations,char_predictions):
+
+def turn_char_predictions_to_word_predictions(observations, char_predictions):
     """
     :param observations: obs list as entered to the hmm viterbi
     :param char_predictions: list of prediction that is the viterbi output
@@ -108,6 +109,7 @@ def turn_char_predictions_to_word_predictions(observations,char_predictions):
 
     return words, predictions
 
+
 def check_all_results_parameters(model_name,
                                  output_words,
                                  actual_words,
@@ -137,6 +139,3 @@ def check_all_results_parameters(model_name,
 
     with open(str(model_name) + '_Run_Summary.txt', 'w') as f:
         f.write(report_str)
-
-
-
