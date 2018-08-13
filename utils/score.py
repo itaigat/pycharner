@@ -17,7 +17,9 @@ def precision(predicted, true, e_type='ALL'):
         for i in range(len(predicted)):
             if predicted[i] == true[i]:
                 true_counter += 1
-        retrieved_counter = len(predicted)
+            if predicted[i] != 'O':
+                retrieved_counter += 1
+        # retrieved_counter = len(predicted)
     else:
         for i in range(len(predicted)):
             if predicted[i] == e_type:
@@ -25,7 +27,7 @@ def precision(predicted, true, e_type='ALL'):
                 if predicted[i] == true[i]:
                     true_counter += 1
 
-    return true_counter / retrieved_counter
+    return float(true_counter) / retrieved_counter
 
 
 def recall(predicted, true, e_type='ALL'):
@@ -46,7 +48,9 @@ def recall(predicted, true, e_type='ALL'):
         for i in range(len(predicted)):
             if predicted[i] == true[i]:
                 true_counter += 1
-        relevant_counter = len(true)
+            if true[i] != 'O':
+                relevant_counter += 1
+        # relevant_counter = len(true)
     else:
         for i in range(len(predicted)):
             if predicted[i] == true[i] == e_type:
@@ -54,7 +58,7 @@ def recall(predicted, true, e_type='ALL'):
             if true[i] == e_type:
                 relevant_counter += 1
 
-    return true_counter / relevant_counter
+    return float(true_counter) / relevant_counter
 
 
 def F1(predicted, true, e_type='ALL'):
@@ -66,7 +70,7 @@ def F1(predicted, true, e_type='ALL'):
     :return: recall score
     """
     precision_score = precision(predicted, true, e_type)
-    recall_score = precision(predicted, true, e_type)
+    recall_score = recall(predicted, true, e_type)
 
     return 2 * ((precision_score * recall_score) / (precision_score + recall_score))
 
@@ -100,11 +104,39 @@ def turn_char_predictions_to_word_predictions(observations,char_predictions):
         curr_word += curr_char
 
         if curr_pred != pred[0]:
-            print('Unexpected predicrion problem got:' + str(pred) + ' in same word of ' + curr_pred)
+            print('Unexpected prediction problem got:' + str(pred) + ' in same word of ' + curr_pred)
 
     return words, predictions
 
+def check_all_results_parameters(model_name,
+                                 output_words,
+                                 actual_words,
+                                 output_pred,
+                                 actual_pred,
+                                 number_of_history_chars):
+    """
+    :param model_name: the model name (HMM and etc)
+    :param output_words: the model output list of words
+    :param actual_words: the actual list of words
+    :param output_pred: the model prediction per word
+    :param actual_pred: the actual labeling
+    :param number_of_history_chars: number of history characters
+    :return: creates report and and puts in the repository
+    """
+    if tuple(output_words) != tuple(actual_words):
+        print('Word align critical problem !!')
+    report_str = 'Run Summary:\nNumber of history chars in test:' + str(number_of_history_chars) + '\n'
 
+    for label_type in (list(set(actual_pred)) + ['ALL']):
+        p_score = precision(output_pred, actual_pred, e_type=label_type)
+        r_score = recall(output_pred, actual_pred, e_type=label_type)
+        f1_score = F1(output_pred, actual_pred, e_type=label_type)
+        report_str += "For " + str(label_type) + ":\nPrecision: " + str(p_score) + "\n"
+        report_str += "Recall: " + str(r_score) + "\nF1 Score:" + str(f1_score) + "\n"
+    print(str(report_str))
+
+    with open(str(model_name) + '_Run_Summary.txt', 'w') as f:
+        f.write(report_str)
 
 
 

@@ -27,17 +27,6 @@ class HMM:
         state_prior_dict, transition_dict, emission_dict, smoothing_factor = self.create_all_probabilities_for_viterbi(self.train_chars,
                                                                                                      self.train_labels,
                                                                                                      number_of_history_chars)
-        # devel_obs = self.create_obs_list(self.valid_chars, number_of_history_chars)
-        # # print(transition_dict)
-        # vt_res = Viterbi.viterbi_for_hmm(obs=tuple(devel_obs),
-        #                                  states=tuple(set(self.train_labels)),
-        #                                  start_p=state_prior_dict,
-        #                                  trans_p=transition_dict,
-        #                                  emit_p=emission_dict,
-        #                                  non_history_obs='_' * number_of_history_chars,
-        #                                  smoothing_factor=smoothing_factor)
-        # print('Viterbi Ended With Proba: ' + str(vt_res[0]))
-        # output_words, output_pred = score.turn_char_predictions_to_word_predictions(tuple(devel_obs),vt_res[1])
 
         output_words, output_pred = self.test_dataset(
                                              dataset_chars = self.valid_chars,
@@ -49,20 +38,12 @@ class HMM:
                                              non_history_obs = '_' * number_of_history_chars,
                                              smoothing_factor = smoothing_factor)
         actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
-        if tuple(output_words) != tuple(actual_words):
-            print ('Word align critical problem !!')
-        report_str = 'Run Summary:\nNumber of history chars in test:' + str(number_of_history_chars) + '\n'
-
-        for label_type in (list(set(actual_pred)) + ['ALL']):
-            p_score = score.precision(output_pred, actual_pred, e_type=label_type)
-            r_score = score.recall(output_pred, actual_pred, e_type=label_type)
-            f1_score = score.F1(output_pred, actual_pred, e_type = label_type)
-            report_str += "For " + str(label_type) + ":\nPrecision: " + str(p_score) + "\n"
-            report_str += "Recall: " + str(r_score) + "\nF1 Score:" + str(f1_score) + "\n"
-        print(str(report_str))
-        with open('HMM_Run_Summary.txt', 'w') as f:
-            f.write(report_str)
-
+        score.check_all_results_parameters(model_name='HMM',
+                                           output_words=output_words,
+                                           actual_words=actual_words,
+                                           output_pred=output_pred,
+                                           actual_pred=actual_pred,
+                                           number_of_history_chars=number_of_history_chars)
 
 
 
@@ -77,18 +58,22 @@ class HMM:
             :param characters: list of characters (of train set)
             :param char_labels: list of characters labels (of train set)
             :param history_len: the number of characters used for history
-            :return: For train set creates all state prior probabilities, transition probabilities
+            :return: For train set creates all state init probabilities, transition probabilities
                      and emission_probability for viterbi
             """
 
             state_prior_dict = {}
+            init_state_dict = {}
             transition_dict = {}
             emission_dict = {}
             observations_state_counter_dict = {}
 
             total_chars = 0.0
+            all_initions = 0.0
             all_states = list(set(char_labels))
             for state in all_states:
+                if state[1] == 1 or state[1] == 'F':
+                    init_state_dict[state] = 0.0
                 state_prior_dict[state] = 0.0
 
             history_list = ['_'] * history_len
@@ -102,7 +87,13 @@ class HMM:
                     history_list = ['_'] * history_len
                     memory_label = None
                     continue
-
+                # for init probabilities
+                if memory_label is None:
+                    if curr_label in init_state_dict:
+                        init_state_dict[curr_label] += 1.0
+                        all_initions += 1.0
+                    else:
+                        print('Unexpected init state')
                 total_chars += 1
                 # fills state_prior_dict in the number of times each label appeared
                 state_prior_dict[curr_label] += 1
@@ -150,15 +141,30 @@ class HMM:
                     transition_dict[outer_state][inner_state] = transition_dict[outer_state][inner_state] / float(
                         state_prior_dict[outer_state])
                 for state in all_states:
-                    # adds 0 probability to unreachable states
+                    # adds 0 probability to unreachable states and positive probabilities to move to final state to all
                     if state not in transition_dict[outer_state]:
+                        if outer_state[1] != 'F':
+                            if (state[0] == outer_state[0]):
+                                if (state[1] == 'F'):
+                                    for inner_state in transition_dict[outer_state]:
+                                        transition_dict[outer_state][inner_state] = (transition_dict[outer_state][inner_state]*float(
+                                            state_prior_dict[outer_state]))/float(state_prior_dict[outer_state] + 1)
+                                    transition_dict[outer_state][state] = 1.0 / float(state_prior_dict[outer_state] + 1)
+                                    continue
                         transition_dict[outer_state][state] = 0.0
             if smoothed == True:
                 num_of_unique_chars = len(set(characters))
 
-            # for prior probabilities
+            # for prior probabilities - maybe not needed
             for state in state_prior_dict:
                 state_prior_dict[state] = state_prior_dict[state] / float(total_chars)
+            # for sentence init probabilities
+            for state in all_states:
+                if state in init_state_dict:
+                    init_state_dict[state] = init_state_dict[state] / float(all_initions)
+                else:
+                    # gives zero probability to states that cant be in the start of sentence for example ('PER', 3)
+                    init_state_dict[state] = 0.0
             # for emission probabilities: (smoothing needed)
             for given_data in emission_dict:
                 num_of_existing_options = 0
