@@ -141,15 +141,15 @@ class HMM:
             for state in all_states:
                 # adds 0 probability to unreachable states and positive probabilities to move to final state to all
                 if state not in transition_dict[outer_state]:
-                    if outer_state[1] != 'F':
-                        if state[0] == outer_state[0]:
-                            if state[1] == 'F':
-                                for inner_state in transition_dict[outer_state]:
-                                    transition_dict[outer_state][inner_state] = (transition_dict[outer_state][
-                                                                                     inner_state] * float(
-                                        state_prior_dict[outer_state])) / float(state_prior_dict[outer_state] + 1)
-                                transition_dict[outer_state][state] = 1.0 / float(state_prior_dict[outer_state] + 1)
-                                continue
+                    # if outer_state[1] != 'F':
+                    #     if state[0] == outer_state[0]:
+                    #         if state[1] == 'F':
+                    #             for inner_state in transition_dict[outer_state]:
+                    #                 transition_dict[outer_state][inner_state] = (transition_dict[outer_state][
+                    #                                                                  inner_state] * float(
+                    #                     state_prior_dict[outer_state])) / float(state_prior_dict[outer_state] + 1)
+                    #             transition_dict[outer_state][state] = 1.0 / float(state_prior_dict[outer_state] + 1)
+                    #             continue
                     transition_dict[outer_state][state] = 0.0
         if smoothed:
             num_of_unique_chars = len(set(characters))

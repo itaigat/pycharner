@@ -15,7 +15,7 @@ def precision(predicted, true, e_type='ALL'):
 
     if e_type == 'ALL':
         for i in range(len(predicted)):
-            if predicted[i] == true[i]:
+            if predicted[i] == true[i] != 'O':
                 true_counter += 1
             if predicted[i] != 'O':
                 retrieved_counter += 1
@@ -46,7 +46,7 @@ def recall(predicted, true, e_type='ALL'):
 
     if e_type == 'ALL':
         for i in range(len(predicted)):
-            if predicted[i] == true[i]:
+            if predicted[i] == true[i] != 'O':
                 true_counter += 1
             if true[i] != 'O':
                 relevant_counter += 1
