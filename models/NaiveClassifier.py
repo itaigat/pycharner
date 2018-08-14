@@ -14,8 +14,8 @@ class NaiveClassifier:
             self.train = CoNLLDataset(paths.CoNLLDataset_train_path)
             self.valid = CoNLLDataset(paths.CoNLLDataset_valid_path)
 
-            self.train_chars, self.train_labels = pre_process_CoNLLDataset(self.train)
-            self.valid_labels, self.valid_labels = pre_process_CoNLLDataset(self.valid)
+            self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train)
+            self.valid_labels, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid)
 
         self.label = ''
         self.train_model()

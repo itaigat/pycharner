@@ -7,7 +7,7 @@ from models.algorithms import Viterbi
 
 
 class HMM:
-    def __init__(self, number_of_history_chars=5, dataset='CoNLL2003'):
+    def __init__(self, number_of_history_chars=5, dataset='CoNLL2003', model_name='HMM'):
         self.number_of_history_chars = number_of_history_chars
 
         if dataset == 'CoNLL2003':
@@ -15,9 +15,9 @@ class HMM:
             self.test = CoNLLDataset(paths.CoNLLDataset_test_path)
             self.valid = CoNLLDataset(paths.CoNLLDataset_valid_path)
 
-            self.train_chars, self.train_labels = pre_process_CoNLLDataset(self.train)
-            self.test_chars, self.test_labels = pre_process_CoNLLDataset(self.test)
-            self.valid_chars, self.valid_labels = pre_process_CoNLLDataset(self.valid, row_limit=None)
+            self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train)
+            self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test)
+            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None)
 
         elif dataset == 'Sport5':
             pass
@@ -39,7 +39,7 @@ class HMM:
             non_history_obs='_' * number_of_history_chars,
             smoothing_factor=smoothing_factor)
         actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
-        score.check_all_results_parameters(model_name='HMM',
+        score.check_all_results_parameters(model_name=model_name,
                                            output_words=output_words,
                                            actual_words=actual_words,
                                            output_pred=output_pred,
@@ -53,6 +53,7 @@ class HMM:
                                              smoothed=True):
 
         """
+            :param smoothed:
             :param characters: list of characters (of train set)
             :param char_labels: list of characters labels (of train set)
             :param history_len: the number of characters used for history
@@ -222,6 +223,7 @@ class HMM:
                      non_history_obs,
                      smoothing_factor):
         """
+        :param number_of_history_chars:
         :param dataset_chars: list of chars
         :param states: set of states
         :param state_prior_dict: prior probabilities for each state

@@ -1,6 +1,7 @@
-def pre_process_CoNLLDataset(dataset, row_limit = None):
+def pre_process_CoNLLDataset(dataset, row_limit=None):
     """
     :param dataset: A Dataset object
+    :param row_limit: number of rows to process
     :return: returns two lists:
     characters - list of text characters in order where spaces are replaced with '_'
     char_labels - list of labels for each character (for characters[i] the label is char_labels[i])
@@ -9,16 +10,17 @@ def pre_process_CoNLLDataset(dataset, row_limit = None):
     rows = dataset.__str__().split('\n')
     words = []
     word_labels = []
+    word_pos = []
 
     if row_limit is not None:
         num_rows = row_limit
     else:
         num_rows = len(rows) - 1
 
-    for i in range(0,num_rows, 2):
-        # TODO: add '/n' handling
+    for i in range(0, num_rows, 3):
         words.extend(rows[i].split(' ') + ['\n'])
         word_labels.extend(rows[i + 1].split(' ') + ['O'])
+        word_pos.extend(rows[i + 2].split(' ') + ['enter'])
 
     if len(words) != len(word_labels):
         print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
@@ -26,10 +28,12 @@ def pre_process_CoNLLDataset(dataset, row_limit = None):
 
     characters = []
     char_labels = []
+    char_poss = []
 
     for j in range(len(words)):
         word = words[j]
         word_label = word_labels[j]
+        char_pos = word_pos[j]
 
         if 'LOC' in word_label:
             word_label = 'LOC'
@@ -46,15 +50,18 @@ def pre_process_CoNLLDataset(dataset, row_limit = None):
                 char_labels.append((word_label, 'F'))
             else:
                 char_labels.append((word_label, i + 1))
+            char_poss.append(char_pos)
 
         # Add spaces
         characters.append('_')
         # check if this is the correct state
         char_labels.append(('O', 'F'))
+        char_poss.append('enter')
 
-    return characters, char_labels
+    return characters, char_labels, char_poss
 
-def pre_process_CoNLLDataset_for_score_test(dataset, row_limit = None):
+
+def pre_process_CoNLLDataset_for_score_test(dataset, row_limit=None):
     """
     :param dataset: Dataset object
     :param row_limit: number of rows to process
@@ -69,9 +76,8 @@ def pre_process_CoNLLDataset_for_score_test(dataset, row_limit = None):
     else:
         num_rows = len(rows) - 1
     for i in range(0, num_rows, 2):
-        # TODO: add '/n' handling -no need
-        words.extend(rows[i].split(' ') )
-        word_labels.extend(rows[i + 1].split(' ') )
+        words.extend(rows[i].split(' '))
+        word_labels.extend(rows[i + 1].split(' '))
 
     for j in range(len(word_labels)):
         word_label = word_labels[j]

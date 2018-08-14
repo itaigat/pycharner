@@ -41,8 +41,8 @@ class Dataset(object):
 
     def __str__(self):
         st = ''
-        for sentence, tag in self:
-            st += ' '.join(sentence) + '\n' + ' '.join(tag) + '\n'
+        for sentence, tag, pos in self:
+            st += ' '.join(sentence) + '\n' + ' '.join(tag) + '\n' + ' '.join(pos) + '\n'
 
         return st
 
@@ -51,7 +51,7 @@ class CoNLLDataset(Dataset):
     def __iter__(self):
         niter = 0
         with open(self.filename) as f:
-            words, tags = [], []
+            words, tags, poss = [], [], []
             for line in f:
                 line = line.strip()
                 if len(line) == 0 or line.startswith("-DOCSTART-"):
@@ -59,14 +59,15 @@ class CoNLLDataset(Dataset):
                         niter += 1
                         if self.max_iter is not None and niter > self.max_iter:
                             break
-                        yield words, tags
-                        words, tags = [], []
+                        yield words, tags, poss
+                        words, tags, poss = [], [], []
                 else:
                     ls = line.split(' ')
-                    word, tag = ls[0], ls[-1]
+                    word, tag, pos = ls[0], ls[-1], ls[-2]
 
                     words += [word]
                     tags += [tag]
+                    poss += [pos]
 
                     """
                     In case you want a word and not a sentence - take off the comment below
