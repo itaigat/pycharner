@@ -229,7 +229,7 @@ class HMM:
         :param state_prior_dict: prior probabilities for each state
         :param transition_dict: transition probabilities between states
         :param emission_dict: emission probabilities dict
-        :param non_history_obs: the begining of a sentence history observation
+        :param non_history_obs: the beginning of a sentence history observation
         :param smoothing_factor: smoothing factor for unseen emission forms
         :return: list of words with list of word predictions
         """

@@ -63,7 +63,7 @@ class CoNLLDataset(Dataset):
                         words, tags, poss = [], [], []
                 else:
                     ls = line.split(' ')
-                    word, tag, pos = ls[0], ls[-1], ls[-2]
+                    word, tag, pos = ls[0], ls[-1], ls[1]
 
                     words += [word]
                     tags += [tag]

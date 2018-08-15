@@ -20,7 +20,7 @@ def pre_process_CoNLLDataset(dataset, row_limit=None):
     for i in range(0, num_rows, 3):
         words.extend(rows[i].split(' ') + ['\n'])
         word_labels.extend(rows[i + 1].split(' ') + ['O'])
-        word_pos.extend(rows[i + 2].split(' ') + ['enter'])
+        word_pos.extend(rows[i + 2].split(' ') + ['\n'])
 
     if len(words) != len(word_labels):
         print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
@@ -75,7 +75,7 @@ def pre_process_CoNLLDataset_for_score_test(dataset, row_limit=None):
         num_rows = row_limit
     else:
         num_rows = len(rows) - 1
-    for i in range(0, num_rows, 2):
+    for i in range(0, num_rows, 3):
         words.extend(rows[i].split(' '))
         word_labels.extend(rows[i + 1].split(' '))
 

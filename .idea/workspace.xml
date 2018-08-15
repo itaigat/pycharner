@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/models/naive.py" afterDir="false" />
+    <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment="POS added&#10;main - try 6 configs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/data/0407.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Sport5/data/0407.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sport5/schema/sport5.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/data/Sport5/schema/sport5.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/HMM.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/HMM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/decoder.py" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/pycharner$main.coverage" NAME="main Coverage Results" MODIFIED="1534181389371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pycharner$main.coverage" NAME="main Coverage Results" MODIFIED="1534314681894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pycharner$decoder.coverage" NAME="decoder Coverage Results" MODIFIED="1532978075335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -28,13 +28,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#0#52#0" expanded="true" />
+                <element signature="e#1#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="308" selection-start-line="308" selection-end-line="308" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="score.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/score.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="140" selection-start-line="140" selection-end-line="140" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/common.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decoder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/decoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,8 +82,8 @@
       <file leaf-file-name="HMM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/HMM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="86" />
+            <state relative-caret-position="87">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -52,20 +91,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/preprocess.py">
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/CoNLL2003/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
+            <state relative-caret-position="1275">
+              <caret line="75" column="7" lean-forward="true" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="naive.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/naive.py">
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="52">
+              <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NaiveClassifier.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/NaiveClassifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -73,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEMM.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/MEMM.py">
+      <file leaf-file-name="paramaters.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/paramaters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -97,6 +145,12 @@
       <find>word</find>
       <find>DOCSTART</find>
       <find>type</find>
+      <find>print</find>
+      <find>test</find>
+      <find>row_limit</find>
+      <find>__str</find>
+      <find>dataset</find>
+      <find>CoNLLDataset_train_path</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,16 +165,17 @@
         <option value="$PROJECT_DIR$/decoder.py" />
         <option value="$PROJECT_DIR$/utils/common.py" />
         <option value="$PROJECT_DIR$/models/MEMM.py" />
-        <option value="$PROJECT_DIR$/utils/decoder.py" />
-        <option value="$PROJECT_DIR$/models/preprocess.py" />
         <option value="$PROJECT_DIR$/models/algorithms.py" />
-        <option value="$PROJECT_DIR$/utils/score.py" />
         <option value="$PROJECT_DIR$/models/paramaters.py" />
-        <option value="$PROJECT_DIR$/models/HMM.py" />
         <option value="$PROJECT_DIR$/data/Sport5/schema/sport5.xsd" />
         <option value="$PROJECT_DIR$/data/Sport5/data/0407.xml" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/models/naive.py" />
+        <option value="$PROJECT_DIR$/utils/score.py" />
+        <option value="$PROJECT_DIR$/models/NaiveClassifier.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/utils/decoder.py" />
+        <option value="$PROJECT_DIR$/models/preprocess.py" />
+        <option value="$PROJECT_DIR$/models/HMM.py" />
       </list>
     </option>
   </component>
@@ -131,10 +186,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1385" />
-    <option name="height" value="745" />
+    <option name="x" value="-15" />
+    <option name="y" value="-15" />
+    <option name="width" value="3233" />
+    <option name="height" value="1733" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -148,33 +203,6 @@
             <path>
               <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="CoNLL2003" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="Sport5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -664,7 +692,28 @@
       <option name="project" value="LOCAL" />
       <updated>1534164338040</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Naive classifier added">
+      <created>1534181506972</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1534181506972</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Naive classifier fix">
+      <created>1534191310786</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1534191310786</updated>
+    </task>
+    <task id="LOCAL-00014" summary="POS added&#10;main - try 6 configs">
+      <created>1534256974634</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1534256974634</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -678,22 +727,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291592" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.3295325" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32737032" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2340081" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2340081" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39892665" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39534885" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -724,7 +772,10 @@
     <MESSAGE value="parameters &amp; preprocess added" />
     <MESSAGE value="Paths on parameters" />
     <MESSAGE value="typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="typo" />
+    <MESSAGE value="Naive classifier added" />
+    <MESSAGE value="Naive classifier fix" />
+    <MESSAGE value="POS added&#10;main - try 6 configs" />
+    <option name="LAST_COMMIT_MESSAGE" value="POS added&#10;main - try 6 configs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -735,14 +786,29 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url />
-          <line>9</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/utils/score.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url />
-          <line>21</line>
-          <option name="timeStamp" value="41" />
+          <url>file://$PROJECT_DIR$/models/HMM.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/models/preprocess.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/score.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/score.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -756,33 +822,33 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="42" />
+      <option name="time" value="54" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string />
+        <expression-string>max(counter.items(), key=operator.itemgetter(1))[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>max(counter.items(), key=operator.itemgetter(1))[1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>max(counter.items(), key=operator.itemgetter(0))[1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>max(counter.items(), key=operator.itemgetter(0))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>max(counter.items(), key=operator.itemgetter(0))[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -809,23 +875,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
@@ -879,7 +928,7 @@
         <state relative-caret-position="136">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -913,7 +962,7 @@
         <state relative-caret-position="238">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -947,7 +996,7 @@
         <state relative-caret-position="238">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -981,7 +1030,7 @@
         <state relative-caret-position="238">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1015,7 +1064,7 @@
         <state relative-caret-position="136">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,7 +1091,7 @@
         <state relative-caret-position="68">
           <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1095,13 +1144,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/Sport5/data/433.xml" />
-    <entry file="file://$PROJECT_DIR$/utils/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -1113,37 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="93" column="32" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/score.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="43" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/CoNLL2003/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/paramaters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -1168,17 +1179,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Naive_Run_Summary.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/paramaters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/NaiveClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/CoNLL2003/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" column="7" lean-forward="true" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        <state relative-caret-position="52">
+          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/score.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/HMM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="86" />
+        <state relative-caret-position="87">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -1187,20 +1256,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/naive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#1#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
