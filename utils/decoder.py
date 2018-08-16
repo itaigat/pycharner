@@ -1,3 +1,4 @@
+import math
 from os import listdir, path
 from xml.etree import ElementTree
 
@@ -76,14 +77,42 @@ class CoNLLDataset(Dataset):
 
 
 class SportDataset(Dataset):
+    def __init__(self, filename, features=None, part='train', train_size=0.8, valid_size=0.1, test_size=0.1):
+        super().__init__(filename)
+
+        self.features = features
+        self.part = part
+
+        if train_size + test_size + valid_size != 1:
+            raise ValueError
+
+        self.train_size = train_size
+        self.valid_size = valid_size
+        self.test_size = test_size
+
     def __iter__(self):
         files = [f for f in listdir(self.filename)]
+
+        train_len = math.floor(len(files) * self.train_size)
+        test_len = math.floor(len(files) * self.test_size) + train_len
+
+        if self.part == 'train':
+            files = files[:train_len]
+        elif self.part == 'test':
+            files = files[train_len:test_len]
+        elif self.part == 'valid':
+            files = files[test_len:]
+        elif self.part == 'all':
+            pass
+        else:
+            raise ValueError
 
         for file in files:
             with open(path.join(self.filename, file), encoding='utf8') as f:
                 xml = ElementTree.parse(f).getroot()[0]  # Prior - There is no file that contains more than one article
 
                 words, tags = [], []
+                features = self.init_features(self.features)
                 for paragraph in xml:
                     for sentence in paragraph:
                         for word in sentence:
@@ -96,5 +125,23 @@ class SportDataset(Dataset):
                             except IndexError:
                                 tags += ['None']
 
-                    yield words, tags
+                            for feature in self.features:
+                                try:
+                                    features[feature] += [word[0][0][0].attrib[feature]]
+                                except KeyError:
+                                    features[feature] += ['None']
+                                except IndexError:
+                                    features[feature] += ['None']
+
+                    yield words, tags, features
+
                     words, tags = [], []
+                    features = self.init_features(self.features)
+
+    @staticmethod
+    def init_features(features):
+        dic = {}
+        for feature in features:
+            dic[feature] = []
+
+        return dic
