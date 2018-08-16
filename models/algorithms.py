@@ -92,3 +92,63 @@ class Viterbi:
         # prob, state = max([(V[len(obs) - 1][y], y) for y in states])
 
         return prob, path[state]
+
+    @staticmethod
+    def viterbi_for_memm(obs, states, train_probabilities, non_history_label ,number_of_history_labels, smoothing_factor):
+        V = [{}]
+        path = {}
+        curr_obs = obs[0]
+        curr_obs[0] = tuple( [non_history_label] * number_of_history_labels )
+        curr_obs = tuple(curr_obs)
+        for y in states:
+            if ( curr_obs in train_probabilities[y] ):
+                V[0][y] = train_probabilities[y][curr_obs]
+            elif y[1] == 1 or y[1] == 'F':
+                V[0][y] = smoothing_factor
+            else:
+                V[0][y] = 0.0
+            path[y] = [y]
+        print('Viterbi Number Of Obs:' + str(len(obs)))
+        for t in range(1, len(obs)):
+            if t % 1000 == 0:
+                print('Viterbi Number Of Obs Processed:' + str(t))
+            V.append({})
+            newpath = {}
+            curr_obs = obs[t]
+            for y in states:
+                max_prob = - 1
+                former_state = None
+                for y0 in states:
+                    history_states = path[y0][t - number_of_history_labels :t][:]
+                    if len(history_states) < number_of_history_labels:
+                        history_states = [non_history_label]*(number_of_history_labels - len(history_states)) + history_states
+                    temp_curr_obs = curr_obs[:]
+                    temp_curr_obs[0] = tuple(history_states)
+                    temp_curr_obs = tuple(temp_curr_obs)
+                    if temp_curr_obs in train_probabilities[y]:
+                        cur_prob = V[t - 1][y0] * train_probabilities[y][temp_curr_obs]
+                    elif((y0[1] == 'F') and (y == ('O','F'))) or ((y0[1] != 'F') and (y[0] == y0[0]) and (y[1] == 'F' or y[1] == y0[1] - 1)) :
+                        cur_prob = V[t - 1][y0] * smoothing_factor
+                    elif (y == ('O','F')):
+                        cur_prob = V[t - 1][y0] * smoothing_factor/2
+                    else:
+                        cur_prob = V[t - 1][y0] * 0.0
+
+                    if cur_prob > max_prob:
+                        max_prob = cur_prob
+                        former_state = y0
+                V[t][y] = max_prob
+                newpath[y] = path[former_state] + [y]
+
+            path = newpath
+
+        prob = -1
+        for y in states:
+            cur_prob = V[len(obs) - 1][y]
+            if cur_prob > prob:
+                prob = cur_prob
+                state = y
+
+        # prob, state = max([(V[len(obs) - 1][y], y) for y in states])
+
+        return prob, path[state]

@@ -75,7 +75,7 @@ def F1(predicted, true, e_type='ALL'):
     return 2 * ((precision_score * recall_score) / (precision_score + recall_score))
 
 
-def turn_char_predictions_to_word_predictions(observations, char_predictions):
+def turn_char_predictions_to_word_predictions(observations, char_predictions, memm=False):
     """
     :param observations: obs list as entered to the hmm viterbi
     :param char_predictions: list of prediction that is the viterbi output
@@ -87,7 +87,10 @@ def turn_char_predictions_to_word_predictions(observations, char_predictions):
     curr_word = ''
     curr_pred = ''
     for i in range(len(observations)):
-        curr_char = observations[i][-1:]
+        if memm == True:
+            curr_char = observations[i][1][len(observations[i][1]) - 1]
+        else:
+            curr_char = observations[i][-1:]
         pred = char_predictions[i]
 
         if curr_char == '_':

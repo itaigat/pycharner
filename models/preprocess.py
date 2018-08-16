@@ -52,11 +52,14 @@ def pre_process_CoNLLDataset(dataset, row_limit=None):
                 char_labels.append((word_label, i + 1))
             char_poss.append(char_pos)
 
+        if word == '\n':
+            continue
+
         # Add spaces
         characters.append('_')
         # check if this is the correct state
         char_labels.append(('O', 'F'))
-        char_poss.append('enter')
+        char_poss.append('_')
 
     return characters, char_labels, char_poss
 
@@ -92,3 +95,22 @@ def pre_process_CoNLLDataset_for_score_test(dataset, row_limit=None):
         word_labels[j] = word_label
 
     return words, word_labels
+
+
+def create_string_type_tagging(char_list):
+    """
+    :param char_list: list of characters
+    :return: a list with the characters types
+    """
+    char_type_list = []
+    for char in char_list:
+        if char.isupper():
+            char_type_list.append('X')
+        elif char.islower():
+            char_type_list.append('x')
+        elif char.isdigit():
+            char_type_list.append('d')
+        else:
+            char_type_list.append(char)
+
+    return char_type_list
