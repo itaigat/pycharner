@@ -21,8 +21,8 @@ class MEMM:
         self.number_of_history_types = number_of_history_types
         self.number_of_history_labels = number_of_history_labels
 
-        self.number_of_gradient_decent_steps = 30
-        self.learning_rate = 0.001
+        self.number_of_gradient_decent_steps = 15
+        self.learning_rate = 0.01
         self.regularization_factor = regularization_factor
         self.feature_name_list = ['0_Label', '1_Char', '2_Pos', '3_Type']
 
