@@ -33,7 +33,7 @@ class MEMM:
 
             self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train)
             # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test)
-            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=150)
+            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None)
 
         elif dataset == 'Sport5':
             pass
@@ -73,7 +73,7 @@ class MEMM:
         model_name = 'MEMM_' + str(dataset) + '_' + str(self.number_of_history_chars) + '_' + str(self.number_of_history_pos) + '_' \
                      + str(self.number_of_history_types) + '_' + str(self.number_of_history_labels)
 
-        actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=150)
+        actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
 
         score.check_all_results_parameters(model_name=model_name,
                                            output_words=output_words,
