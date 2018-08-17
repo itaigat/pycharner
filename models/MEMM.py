@@ -22,7 +22,7 @@ class MEMM:
         self.number_of_history_labels = number_of_history_labels
 
         self.number_of_gradient_decent_steps = 15
-        self.learning_rate = 0.01
+        self.learning_rate = 0.0001
         self.regularization_factor = regularization_factor
         self.feature_name_list = ['0_Label', '1_Char', '2_Pos', '3_Type']
 
@@ -252,7 +252,7 @@ class MEMM:
                             numerator = state_feature_count_dict[inner_state][outer_obs] * exp(curr_weight)
                             expected_count += numerator/float(denominator)
                     # the last part of the formula is to avoid overfitting
-                    curr_partial_derivative = float(curr_empirical_count) - expected_count #- curr_weight/float(self.regularization_factor)
+                    curr_partial_derivative = float(curr_empirical_count) - expected_count - curr_weight/float(self.regularization_factor)
 
                     state_feature_weight_dict[state][outer_obs] = curr_weight + self.learning_rate * curr_partial_derivative
             print('Gradient Accent Step Finished: ' + str(step + 1))
