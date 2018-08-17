@@ -10,7 +10,7 @@ if __name__ == "__main__":
     tst = MEMM(number_of_history_chars = 2,
                number_of_history_pos = 2,
                number_of_history_types = 3,
-               number_of_history_labels = 1,
+               number_of_history_labels = 2,
                regularization_factor = 2.0,
                dataset = 'CoNLL2003')
 

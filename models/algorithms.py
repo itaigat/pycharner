@@ -94,19 +94,27 @@ class Viterbi:
         return prob, path[state]
 
     @staticmethod
-    def viterbi_for_memm(obs, states, train_probabilities, non_history_label ,number_of_history_labels, smoothing_factor):
+    def viterbi_for_memm(obs, states, train_probabilities, non_history_label ,number_of_history_labels, smoothing_factor_dict, feature_name_list):
         V = [{}]
         path = {}
         curr_obs = obs[0]
         curr_obs[0] = tuple( [non_history_label] * number_of_history_labels )
         curr_obs = tuple(curr_obs)
         for y in states:
-            if ( curr_obs in train_probabilities[y] ):
-                V[0][y] = train_probabilities[y][curr_obs]
-            elif y[1] == 1 or y[1] == 'F':
-                V[0][y] = smoothing_factor
-            else:
-                V[0][y] = 0.0
+            curr_prob = 1.0
+            for feature_kind in feature_name_list:
+                feature_indx = int(feature_kind[0])
+                if curr_obs[feature_indx] in train_probabilities[y]:
+                    curr_prob = curr_prob * train_probabilities[y][curr_obs[feature_indx]]
+                else:
+                    curr_prob = curr_prob * smoothing_factor_dict[feature_kind]
+            V[0][y] = curr_prob
+            # if ( curr_obs in train_probabilities[y] ):
+            #     V[0][y] = train_probabilities[y][curr_obs]
+            # elif y[1] == 1 or y[1] == 'F':
+            #     V[0][y] = smoothing_factor
+            # else:
+            #     V[0][y] = 0.0
             path[y] = [y]
         print('Viterbi Number Of Obs:' + str(len(obs)))
         for t in range(1, len(obs)):
@@ -125,14 +133,21 @@ class Viterbi:
                     temp_curr_obs = curr_obs[:]
                     temp_curr_obs[0] = tuple(history_states)
                     temp_curr_obs = tuple(temp_curr_obs)
-                    if temp_curr_obs in train_probabilities[y]:
-                        cur_prob = V[t - 1][y0] * train_probabilities[y][temp_curr_obs]
-                    elif((y0[1] == 'F') and (y == ('O','F'))) or ((y0[1] != 'F') and (y[0] == y0[0]) and (y[1] == 'F' or y[1] == y0[1] - 1)) :
-                        cur_prob = V[t - 1][y0] * smoothing_factor
-                    elif (y == ('O','F')):
-                        cur_prob = V[t - 1][y0] * smoothing_factor/2
-                    else:
-                        cur_prob = V[t - 1][y0] * 0.0
+                    cur_prob = V[t - 1][y0]
+                    for feature_kind in feature_name_list:
+                        feature_indx = int(feature_kind[0])
+                        if curr_obs[feature_indx] in train_probabilities[y]:
+                            curr_prob = curr_prob * train_probabilities[y][curr_obs[feature_indx]]
+                        else:
+                            curr_prob = curr_prob * smoothing_factor_dict[feature_kind]
+                    # if temp_curr_obs in train_probabilities[y]:
+                    #     cur_prob = V[t - 1][y0] * train_probabilities[y][temp_curr_obs]
+                    # elif((y0[1] == 'F') and (y == ('O','F'))) or ((y0[1] != 'F') and (y[0] == y0[0]) and (y[1] == 'F' or y[1] == y0[1] - 1)) :
+                    #     cur_prob = V[t - 1][y0] * smoothing_factor
+                    # elif (y == ('O','F')):
+                    #     cur_prob = V[t - 1][y0] * smoothing_factor/2
+                    # else:
+                    #     cur_prob = V[t - 1][y0] * 0.0
 
                     if cur_prob > max_prob:
                         max_prob = cur_prob
