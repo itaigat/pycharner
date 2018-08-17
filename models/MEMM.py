@@ -14,6 +14,7 @@ class MEMM:
                  number_of_history_types,
                  number_of_history_labels,
                  regularization_factor,
+                 feature_name_list,
                  dataset='CoNLL2003'):
         
         self.number_of_history_chars = number_of_history_chars
@@ -21,19 +22,19 @@ class MEMM:
         self.number_of_history_types = number_of_history_types
         self.number_of_history_labels = number_of_history_labels
 
-        self.number_of_gradient_decent_steps = 15
-        self.learning_rate = 0.0001
+        self.number_of_gradient_decent_steps = 3
+        self.learning_rate = 0.0003
         self.regularization_factor = regularization_factor
-        self.feature_name_list = ['0_Label', '1_Char', '2_Pos', '3_Type']
-
+        self.feature_name_list = feature_name_list
+        # '0_Label'
         if dataset == 'CoNLL2003':
             self.train = CoNLLDataset(paths.CoNLLDataset_train_path)
             self.test = CoNLLDataset(paths.CoNLLDataset_test_path)
             self.valid = CoNLLDataset(paths.CoNLLDataset_valid_path)
 
-            self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train)
-            # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test)
-            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None)
+            self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train, memm=True)
+            # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test, memm=True)
+            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=60, memm=True)
 
         elif dataset == 'Sport5':
             pass
@@ -66,14 +67,14 @@ class MEMM:
             history_len_labels = self.number_of_history_labels,
             states = set(self.train_labels),
             probabilities_dict = self.train_probabilities,
-            non_history_state = ('O' , 'F'),
+            non_history_state = ('O' , 'S'),
             smoothing_factor_dict = self.smoothing_factor_dict,
             feature_name_list = self.feature_name_list)
 
         model_name = 'MEMM_' + str(dataset) + '_' + str(self.number_of_history_chars) + '_' + str(self.number_of_history_pos) + '_' \
                      + str(self.number_of_history_types) + '_' + str(self.number_of_history_labels)
 
-        actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
+        actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=60)
 
         score.check_all_results_parameters(model_name=model_name,
                                            output_words=output_words,
@@ -118,7 +119,7 @@ class MEMM:
         history_char_list = ['_'] * history_len_char
         history_pos_list = ['_'] * history_len_pos
         history_type_list = ['_'] * history_len_type
-        history_label_list = [('O', 'F')] * history_len_label
+        history_label_list = [('O', 'S')] * history_len_label
 
 
         all_features_count_dict = {}
@@ -136,7 +137,7 @@ class MEMM:
                 history_char_list = ['_'] * history_len_char
                 history_pos_list = ['_'] * history_len_pos
                 history_type_list = ['_'] * history_len_type
-                history_label_list = [('O', 'F')] * history_len_label
+                history_label_list = [('O', 'S')] * history_len_label
                 continue
 
             history_char_list.append(curr_char)
@@ -148,19 +149,22 @@ class MEMM:
 
             # counts for each state how many times each feature observation led to it
             for feature_kind in feature_name_list:
-                obs_index = int(feature_kind[0])
-                if feature_obs[obs_index] not in state_obs_accurences[curr_label]:
-                    state_obs_accurences[curr_label][feature_obs[obs_index]] = 1
+                curr_feature = create_feature_from_observation(feature_kind, feature_obs)
+                # obs_index = int(feature_kind[0])
+                if curr_feature not in state_obs_accurences[curr_label]:
+                    state_obs_accurences[curr_label][curr_feature] = 1
                 else:
-                    state_obs_accurences[curr_label][feature_obs[obs_index]] += 1
+                    state_obs_accurences[curr_label][curr_feature] += 1
                 # counts for each feature observation how many times it appeared
-                if feature_obs[obs_index] not in obs_accurences:
-                    obs_accurences[feature_obs[obs_index]] = 1
+                if curr_feature not in obs_accurences:
+                    obs_accurences[curr_feature] = 1
                 else:
-                    obs_accurences[feature_obs[obs_index]] += 1
+                    obs_accurences[curr_feature] += 1
 
                 all_features_count_dict[feature_kind] += 1
-                all_features.append(feature_obs[obs_index])
+                if ('Char' not in feature_kind):
+                    # chars wont get negative weights
+                    all_features.append(curr_feature)
 
             # each train observation is a tuple containing the state and the feature vector that leads to it
             # all_observations.append( (curr_label, feature_obs) )
@@ -173,6 +177,7 @@ class MEMM:
             history_char_list.pop(0)
             history_pos_list.pop(0)
             history_type_list.pop(0)
+
         # adds to every state zero counts for features that didn't appear with it
         all_features = list(set(all_features))
         for state in state_obs_accurences:
@@ -207,7 +212,11 @@ class MEMM:
         print('Finished probability calc...')
         smoothing_factor_dict = {}
         for feature_kind in feature_name_list:
-            smoothing_factor_dict = 1/float(all_features_count_dict[feature_kind])
+            if 'Char' in feature_kind:
+                smoothing_factor_dict[feature_kind] = 1/float(len(set(characters)))
+            else:
+                smoothing_factor_dict[feature_kind] = 1/float(all_features_count_dict[feature_kind])
+
         return state_obs_probability_dict, smoothing_factor_dict
 
     def calc_feature_weights(self,
@@ -244,7 +253,7 @@ class MEMM:
                             denominator += amount_appeared_together * exp(curr_weight)
                             denominator += (feature_count_dict[outer_obs] - amount_appeared_together) * exp(0)
                         else:
-                            print('Not Supposed To Get Here')
+                            # print('Not Supposed To Get Here')
                             denominator += feature_count_dict[outer_obs] * exp(0)
 
                     for inner_state in all_states:
@@ -253,9 +262,10 @@ class MEMM:
                             expected_count += numerator/float(denominator)
                     # the last part of the formula is to avoid overfitting
                     curr_partial_derivative = float(curr_empirical_count) - expected_count - curr_weight/float(self.regularization_factor)
-
+                    # if curr_weight != 0.0:
+                    #     print (str(curr_weight ))
                     state_feature_weight_dict[state][outer_obs] = curr_weight + self.learning_rate * curr_partial_derivative
-            print('Gradient Accent Step Finished: ' + str(step + 1))
+            print('Gradient Accent Step Finished: [' + str(step + 1) + " : " + str(self.number_of_gradient_decent_steps) + "]")
         return state_feature_weight_dict
 
     def create_obs_list(self,
@@ -350,7 +360,8 @@ class MEMM:
                                                  non_history_label=non_history_state,
                                                  number_of_history_labels=history_len_labels,
                                                  smoothing_factor_dict=smoothing_factor_dict,
-                                                 feature_name_list=feature_name_list)
+                                                 feature_name_list=feature_name_list,
+                                                 create_feature_from_observation=create_feature_from_observation)
 
                 temp_output_words, temp_output_pred = score.turn_char_predictions_to_word_predictions(obs_for_viterbi,
                                                                                                       vt_res[1],
@@ -369,3 +380,25 @@ class MEMM:
                 temp_types.append(dataset_types[i])
 
         return output_words, output_pred
+
+
+def create_feature_from_observation(feature_detail, observation):
+     """
+     :param feature_detail: fature detail from feature name list
+     :param observation: current observation
+     :return: create required feature from current observation
+     """
+     if type(feature_detail) != type(tuple()):
+         obs_index = int(feature_detail[0])
+         feature = observation[obs_index]
+     else:
+         feature = []
+         for inner_feat in feature_detail:
+             obs_index = int(inner_feat[0])
+             inner_indx = (-1)*int(inner_feat.split('_')[2])
+             feature.append(observation[obs_index][inner_indx])
+         feature = tuple(feature)
+     return feature
+
+
+

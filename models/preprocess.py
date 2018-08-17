@@ -1,4 +1,4 @@
-def pre_process_CoNLLDataset(dataset, row_limit=None):
+def pre_process_CoNLLDataset(dataset, row_limit=None, memm=False):
     """
     :param dataset: A Dataset object
     :param row_limit: number of rows to process
@@ -58,7 +58,10 @@ def pre_process_CoNLLDataset(dataset, row_limit=None):
         # Add spaces
         characters.append('_')
         # check if this is the correct state
-        char_labels.append(('O', 'F'))
+        if memm == True:
+            char_labels.append(('O', 'S'))
+        else:
+            char_labels.append(('O', 'F'))
         char_poss.append('_')
 
     return characters, char_labels, char_poss
