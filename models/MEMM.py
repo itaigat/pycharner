@@ -163,8 +163,13 @@ class MEMM:
 
                 all_features_count_dict[feature_kind] += 1
                 if ('Char' not in feature_kind):
-                    # chars wont get negative weights
-                    all_features.append(curr_feature)
+                    non_char_feat = True
+                    for feat in feature_kind:
+                        if 'Char' in feat:
+                             non_char_feat = False
+                    if non_char_feat == True:
+                        # chars wont get negative weights
+                        all_features.append(curr_feature)
 
             # each train observation is a tuple containing the state and the feature vector that leads to it
             # all_observations.append( (curr_label, feature_obs) )
@@ -212,7 +217,11 @@ class MEMM:
         print('Finished probability calc...')
         smoothing_factor_dict = {}
         for feature_kind in feature_name_list:
-            if 'Char' in feature_kind:
+            non_char_feat = True
+            for feat in feature_kind:
+                if 'Char' in feat:
+                    non_char_feat = False
+            if non_char_feat == True:
                 smoothing_factor_dict[feature_kind] = 1/float(len(set(characters)))
             else:
                 smoothing_factor_dict[feature_kind] = 1/float(all_features_count_dict[feature_kind])
@@ -274,7 +283,8 @@ class MEMM:
                         char_types,
                         history_len_char,
                         history_len_pos,
-                        history_len_type,):
+                        history_len_type,
+                        feature_name_list):
         """
         :param characters: list of chars
         :param char_pos: list of cher's word's part of speech
@@ -285,6 +295,7 @@ class MEMM:
         :return: observation list ready for viterbi
         """
         observations = []
+        obs_for_score = []
         history_char_list = ['_'] * history_len_char
         history_pos_list = ['_'] * history_len_pos
         history_type_list = ['_'] * history_len_type
@@ -304,15 +315,22 @@ class MEMM:
             history_char_list.append(curr_char)
             history_pos_list.append(curr_pos)
             history_type_list.append(curr_type)
-
+            # label list is empty currently
             feature_obs = [[], tuple(history_char_list), tuple(history_pos_list), tuple(history_type_list)]
-            observations.append(feature_obs)
+            obs_for_score.append(feature_obs )
+
+            feature_obs_processed = []
+            for feature_kind in feature_name_list:
+                curr_feature = create_feature_from_observation(feature_kind, feature_obs, no_labels= True)
+                feature_obs_processed.append(curr_feature)
+
+            observations.append(feature_obs_processed)
 
             history_char_list.pop(0)
             history_pos_list.pop(0)
             history_type_list.pop(0)
 
-        return observations
+        return observations, obs_for_score
 
     def test_dataset(self,
                      dataset_chars,
@@ -346,13 +364,14 @@ class MEMM:
         temp_types = []
         for i in range(len(dataset_chars)):
             if dataset_chars[i] == '\n':
-                obs_for_viterbi = self.create_obs_list(
+                obs_for_viterbi, obs_for_score= self.create_obs_list(
                                                  characters=temp_chars,
                                                  char_pos=temp_pos,
                                                  char_types=temp_types,
                                                  history_len_char=history_len_char,
                                                  history_len_pos=history_len_pos,
-                                                 history_len_type=history_len_type)
+                                                 history_len_type=history_len_type,
+                                                 feature_name_list=feature_name_list)
 
                 vt_res = Viterbi.viterbi_for_memm(obs=tuple(obs_for_viterbi),
                                                  states=tuple(states),
@@ -363,7 +382,7 @@ class MEMM:
                                                  feature_name_list=feature_name_list,
                                                  create_feature_from_observation=create_feature_from_observation)
 
-                temp_output_words, temp_output_pred = score.turn_char_predictions_to_word_predictions(obs_for_viterbi,
+                temp_output_words, temp_output_pred = score.turn_char_predictions_to_word_predictions(obs_for_score,
                                                                                                       vt_res[1],
                                                                                                       memm = True)
                 output_words.extend(temp_output_words)
@@ -382,7 +401,7 @@ class MEMM:
         return output_words, output_pred
 
 
-def create_feature_from_observation(feature_detail, observation):
+def create_feature_from_observation(feature_detail, observation, no_labels= False):
      """
      :param feature_detail: fature detail from feature name list
      :param observation: current observation
@@ -394,10 +413,14 @@ def create_feature_from_observation(feature_detail, observation):
      else:
          feature = []
          for inner_feat in feature_detail:
+             if (no_labels == True) and ('Label' in inner_feat):
+                 feature.append(None)
+                 continue
              obs_index = int(inner_feat[0])
              inner_indx = (-1)*int(inner_feat.split('_')[2])
              feature.append(observation[obs_index][inner_indx])
-         feature = tuple(feature)
+         if (no_labels != True):
+            feature = tuple(feature)
      return feature
 
 
