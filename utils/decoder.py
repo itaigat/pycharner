@@ -80,8 +80,12 @@ class SportDataset(Dataset):
     def __init__(self, filename, features=None, part='train', train_size=0.8, valid_size=0.1, test_size=0.1):
         super().__init__(filename)
 
-        self.features = features
         self.part = part
+
+        if features is None:
+            self.features = []
+        else:
+            self.features = features
 
         if train_size + test_size + valid_size != 1:
             raise ValueError
