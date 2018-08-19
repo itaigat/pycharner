@@ -58,9 +58,15 @@ class Viterbi:
                 V[0][y] = start_p[y] * smoothing_factor
             path[y] = [y]
         print('Viterbi Number Of Obs:' + str(len(obs)))
+        verge_factor = 10 ** (-150)
+        adjust_factor = 10 ** (149)
         for t in range(1, len(obs)):
-            if t % 1000 == 0:
-                print('Viterbi Number Of Obs Processed:' + str(t))
+            if t % 50 == 0:
+                if all([val < verge_factor for val in V[t - 1].values()]):
+                    # for probability not run to zero
+                    print('Makeing Proba Adjust')
+                    for y0 in states:
+                        V[t - 1][y0] = V[t - 1][y0] * (adjust_factor)
             V.append({})
             newpath = {}
             for y in states:
