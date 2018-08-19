@@ -1,6 +1,6 @@
 import operator
 
-from models.paramaters import paths
+from models.paramaters import DatasetsPaths
 from utils.decoder import CoNLLDataset
 from models.preprocess import pre_process_CoNLLDataset
 from utils import score
@@ -11,8 +11,8 @@ class NaiveClassifier:
         self.number_of_history_chars = number_of_history_chars
 
         if dataset == 'CoNLL2003':
-            self.train = CoNLLDataset(paths.CoNLLDataset_train_path)
-            self.valid = CoNLLDataset(paths.CoNLLDataset_valid_path)
+            self.train = CoNLLDataset(DatasetsPaths.CoNLLDataset_train_path)
+            self.valid = CoNLLDataset(DatasetsPaths.CoNLLDataset_valid_path)
 
             self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train)
             self.valid_labels, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid)
