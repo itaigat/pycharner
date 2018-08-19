@@ -1,7 +1,10 @@
 from utils.decoder import CoNLLDataset
+from utils.decoder import SportDataset
 from utils import score
 from .preprocess import pre_process_CoNLLDataset
 from .preprocess import pre_process_CoNLLDataset_for_score_test
+from .preprocess import pre_process_Sport5Dataset
+from .preprocess import pre_process_Sport5Dataset_for_score_test
 from .preprocess import create_string_type_tagging
 from .paramaters import DatasetsPaths
 from models.algorithms import Viterbi
@@ -36,18 +39,39 @@ class MEMM:
             self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None,
                                                                                            memm=True)
 
+            # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test, memm=True)
+            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=90, memm=True)
+            self.train_types = create_string_type_tagging(self.train_chars)
+            self.train_gender = None
+            self.valid_gender = None
+
+            actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=90)
+
         elif dataset == 'Sport5':
-            pass
+            self.train = SportDataset(DatasetsPaths.Sport5, part='train', features=['root', 'binyan', 'gender'])
+            self.train_chars, self.train_labels, self.train_featutres = pre_process_Sport5Dataset(self.train)
+            self.train_pos = self.train_featutres['binyan']
+            self.train_types = self.train_featutres['root']
+            self.train_gender = self.train_featutres['gender']
+
+            self.valid = SportDataset(DatasetsPaths.Sport5, part='valid', features=['root', 'binyan', 'gender'])
+            self.valid_chars, self.valid_labels, self.valid_featutres = pre_process_Sport5Dataset(self.valid, doc_limit=5)
+            self.valid_pos = self.valid_featutres['binyan']
+            self.valid_types = self.valid_featutres['root']
+            self.valid_gender = self.valid_featutres['gender']
+
+            actual_words, actual_pred = pre_process_Sport5Dataset_for_score_test(self.valid, doc_limit=5)
         else:
             raise NotImplementedError
 
-        self.train_types = create_string_type_tagging(self.train_chars)
+
 
         self.train_probabilities, self.smoothing_factor_dict = self.create_all_probabilities_for_viterbi(
             characters=self.train_chars,
             char_labels=self.train_labels,
             char_pos=self.train_pos,
             char_types=self.train_types,
+            char_gender=self.train_gender,
             history_len_char=self.number_of_history_chars,
             history_len_pos=self.number_of_history_pos,
             history_len_type=self.number_of_history_types,
@@ -61,6 +85,7 @@ class MEMM:
             dataset_chars=self.valid_chars,
             dataset_pos=self.valid_pos,
             dataset_types=self.valid_types,
+            dataset_gender=self.valid_gender,
             history_len_char=self.number_of_history_chars,
             history_len_pos=self.number_of_history_pos,
             history_len_type=self.number_of_history_types,
@@ -74,7 +99,7 @@ class MEMM:
         model_name = 'MEMM_{0}_{1}_{2}_{3}_{4}'.format(str(dataset), str(self.number_of_history_chars), str(
             self.number_of_history_pos), str(self.number_of_history_types), str(self.number_of_history_labels))
 
-        actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
+
 
         score.check_all_results_parameters(model_name=model_name,
                                            output_words=output_words,
@@ -88,13 +113,14 @@ class MEMM:
                                              char_labels,
                                              char_pos,
                                              char_types,
+                                             char_gender,
                                              history_len_char,
                                              history_len_pos,
                                              history_len_type,
                                              history_len_label,
                                              feature_name_list):
         """
-        :param feature_name_list: 
+        :param feature_name_list:
         :param characters: list of chars
         :param char_labels: list of cher's labels
         :param char_pos: list of cher's word's part of speech
@@ -117,6 +143,8 @@ class MEMM:
         history_pos_list = ['_'] * history_len_pos
         history_type_list = ['_'] * history_len_type
         history_label_list = [('O', 'S')] * history_len_label
+        if char_gender is not None:
+            history_gender_list = ['_'] * history_len_char
 
         all_features_count_dict = {}
         for feature_kind in feature_name_list:
@@ -134,14 +162,22 @@ class MEMM:
                 history_pos_list = ['_'] * history_len_pos
                 history_type_list = ['_'] * history_len_type
                 history_label_list = [('O', 'S')] * history_len_label
+                if char_gender is not None:
+                    history_gender_list = ['_'] * history_len_char
                 continue
 
             history_char_list.append(curr_char)
             history_pos_list.append(curr_pos)
             history_type_list.append(curr_type)
+            if char_gender is not None:
+                history_gender_list.append(char_gender[i])
 
-            feature_obs = (
-                tuple(history_label_list), tuple(history_char_list), tuple(history_pos_list), tuple(history_type_list))
+            feature_obs = [
+                tuple(history_label_list), tuple(history_char_list), tuple(history_pos_list), tuple(history_type_list)]
+            if char_gender is not None:
+                feature_obs.append(tuple(history_gender_list))
+
+            feature_obs= tuple(feature_obs)
 
             # counts for each state how many times each feature observation led to it
             for feature_kind in feature_name_list:
@@ -178,6 +214,9 @@ class MEMM:
             history_char_list.pop(0)
             history_pos_list.pop(0)
             history_type_list.pop(0)
+
+            if char_gender is not None:
+                history_gender_list.pop(0)
 
         # adds to every state zero counts for features that didn't appear with it
         all_features = list(set(all_features))
@@ -281,6 +320,7 @@ class MEMM:
                         characters,
                         char_pos,
                         char_types,
+                        char_gender,
                         history_len_char,
                         history_len_pos,
                         history_len_type,
@@ -300,6 +340,8 @@ class MEMM:
         history_char_list = ['_'] * history_len_char
         history_pos_list = ['_'] * history_len_pos
         history_type_list = ['_'] * history_len_type
+        if char_gender is not None:
+            history_gender_list = ['_'] * history_len_char
 
         for i in range(len(characters)):
             curr_char = characters[i]
@@ -311,13 +353,22 @@ class MEMM:
                 history_char_list = ['_'] * history_len_char
                 history_pos_list = ['_'] * history_len_pos
                 history_type_list = ['_'] * history_len_type
+                if char_gender is not None:
+                    history_gender_list = ['_'] * history_len_char
                 continue
 
             history_char_list.append(curr_char)
             history_pos_list.append(curr_pos)
             history_type_list.append(curr_type)
+
+            if char_gender is not None:
+                history_gender_list.append(char_gender[i])
+
             # label list is empty currently
             feature_obs = [[], tuple(history_char_list), tuple(history_pos_list), tuple(history_type_list)]
+            if char_gender is not None:
+                feature_obs.append(tuple(history_gender_list))
+
             obs_for_score.append(feature_obs)
 
             feature_obs_processed = []
@@ -331,12 +382,16 @@ class MEMM:
             history_pos_list.pop(0)
             history_type_list.pop(0)
 
+            if char_gender is not None:
+                history_gender_list.pop(0)
+
         return observations, obs_for_score
 
     def test_dataset(self,
                      dataset_chars,
                      dataset_pos,
                      dataset_types,
+                     dataset_gender,
                      history_len_char,
                      history_len_pos,
                      history_len_type,
@@ -367,12 +422,17 @@ class MEMM:
         temp_chars = []
         temp_pos = []
         temp_types = []
+        if dataset_gender is None:
+            temp_gender = None
+        else:
+            temp_gender = []
         for i in range(len(dataset_chars)):
             if dataset_chars[i] == '\n':
                 obs_for_viterbi, obs_for_score = self.create_obs_list(
                     characters=temp_chars,
                     char_pos=temp_pos,
                     char_types=temp_types,
+                    char_gender=temp_gender,
                     history_len_char=history_len_char,
                     history_len_pos=history_len_pos,
                     history_len_type=history_len_type,
@@ -399,10 +459,16 @@ class MEMM:
                 temp_chars = []
                 temp_pos = []
                 temp_types = []
+                if dataset_gender is None:
+                    temp_gender = None
+                else:
+                    temp_gender = []
             else:
                 temp_chars.append(dataset_chars[i])
                 temp_pos.append(dataset_pos[i])
                 temp_types.append(dataset_types[i])
+                if dataset_gender is not None:
+                    temp_gender.append(dataset_gender[i])
 
         return output_words, output_pred
 

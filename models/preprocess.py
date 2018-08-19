@@ -117,3 +117,106 @@ def create_string_type_tagging(char_list):
             char_type_list.append(char)
 
     return char_type_list
+
+def pre_process_Sport5Dataset(dataset, doc_limit = None):
+
+    words_list = []
+    word_labels = []
+    features_dict = {}
+
+    docs_processed = 0
+    for words, tags, features in dataset:
+        words_list.extend(words + ['\n'])
+        word_labels.extend(tags + ['O'])
+        for feature in features:
+            if feature not in features_dict:
+                features_dict[feature] = features[feature] + ['\n']
+            else:
+                features_dict[feature].extend(features[feature] + ['\n'])
+        docs_processed += 1
+        if doc_limit is not None and docs_processed > doc_limit:
+            break
+
+    if len(words_list) != len(word_labels):
+        print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
+        raise ValueError
+
+    characters = []
+    char_labels = []
+    char_features = {}
+
+    for feature in features_dict:
+        char_features[feature] = []
+
+    for j in range(len(words_list)):
+        word = words_list[j]
+        word_label = word_labels[j]
+
+
+        if 'location' == word_label or 'country' == word_label or 'town' == word_label:
+            word_label = 'LOC'
+        elif 'symbol' == word_label:
+            word_label = 'MISC'
+        elif 'organization' == word_label:
+            word_label = 'ORG'
+        elif 'person' == word_label:
+            word_label = 'PER'
+        else:
+            word_label = 'O'
+
+        for i in range(len(word)):
+            characters.append(word[i])
+            if i == (len(word) - 1):
+                # The final char of the word gets label (ord_label, 'F')
+                char_labels.append((word_label, 'F'))
+            else:
+                char_labels.append((word_label, i + 1))
+
+            for feature in features_dict:
+                char_features[feature].append(features_dict[feature][j])
+
+        if word == '\n':
+            continue
+
+        # Add spaces
+        characters.append('_')
+        char_labels.append(('O', 'S'))
+
+        for feature in features_dict:
+            char_features[feature].append('_')
+
+    return characters, char_labels, char_features
+
+def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit = None):
+
+    words_list = []
+    word_labels = []
+
+    docs_processed = 0
+    for words, tags, features in dataset:
+        words_list.extend(words + ['\n'])
+        word_labels.extend(tags + ['O'])
+
+        docs_processed += 1
+        if doc_limit is not None and docs_processed > doc_limit:
+            break
+
+    if len(words_list) != len(word_labels):
+        print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
+        raise ValueError
+
+    for j in range(len(word_labels)):
+        word_label = word_labels[j]
+        if 'location' == word_label or 'country' == word_label or 'town' == word_label:
+            word_label = 'LOC'
+        elif 'symbol' == word_label:
+            word_label = 'MISC'
+        elif 'organization' == word_label:
+            word_label = 'ORG'
+        elif 'person' == word_label:
+            word_label = 'PER'
+        else:
+            word_label = 'O'
+        word_labels[j] = word_label
+
+    return words_list, word_labels
