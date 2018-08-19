@@ -101,7 +101,8 @@ class Viterbi:
         return prob, path[state]
 
     @staticmethod
-    def viterbi_for_memm(obs, states, train_probabilities, non_history_label ,number_of_history_labels, smoothing_factor_dict, feature_name_list,create_feature_from_observation):
+    def viterbi_for_memm(obs, states, train_probabilities, non_history_label ,number_of_history_labels,
+                         smoothing_factor_dict, feature_name_list, create_feature_from_observation):
         V = [{}]
         path = {}
         curr_obs = obs[0]
