@@ -77,7 +77,7 @@ class CoNLLDataset(Dataset):
 
 
 class SportDataset(Dataset):
-    def __init__(self, filename, features=None, part='train', train_size=0.8, valid_size=0.1, test_size=0.1):
+    def __init__(self, filename, features=None, part='train', train_size=0.7, valid_size=0.2, test_size=0.1):
         super().__init__(filename)
 
         self.part = part
