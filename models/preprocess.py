@@ -134,7 +134,7 @@ def pre_process_Sport5Dataset(dataset, doc_limit = None):
             else:
                 features_dict[feature].extend(features[feature] + ['\n'])
         docs_processed += 1
-        if doc_limit is not None and docs_processed > doc_limit:
+        if doc_limit is not None and docs_processed >= doc_limit:
             break
 
     if len(words_list) != len(word_labels):
@@ -194,11 +194,11 @@ def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit = None):
 
     docs_processed = 0
     for words, tags, features in dataset:
-        words_list.extend(words + ['\n'])
-        word_labels.extend(tags + ['O'])
+        words_list.extend(words )
+        word_labels.extend(tags )
 
         docs_processed += 1
-        if doc_limit is not None and docs_processed > doc_limit:
+        if doc_limit is not None and docs_processed >= doc_limit:
             break
 
     if len(words_list) != len(word_labels):

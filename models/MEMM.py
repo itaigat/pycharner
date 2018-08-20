@@ -19,7 +19,8 @@ class MEMM:
                  number_of_history_labels,
                  regularization_factor,
                  feature_name_list,
-                 dataset='CoNLL2003'):
+                 dataset='CoNLL2003',
+                 reverse=False):
         self.number_of_history_chars = number_of_history_chars
         self.number_of_history_pos = number_of_history_pos
         self.number_of_history_types = number_of_history_types
@@ -55,12 +56,34 @@ class MEMM:
             self.train_gender = self.train_featutres['gender']
 
             self.valid = SportDataset(DatasetsPaths.Sport5, part='valid', features=['root', 'binyan', 'gender'])
-            self.valid_chars, self.valid_labels, self.valid_featutres = pre_process_Sport5Dataset(self.valid, doc_limit=5)
+            self.valid_chars, self.valid_labels, self.valid_featutres = pre_process_Sport5Dataset(self.valid, doc_limit= None)
             self.valid_pos = self.valid_featutres['binyan']
             self.valid_types = self.valid_featutres['root']
             self.valid_gender = self.valid_featutres['gender']
 
-            actual_words, actual_pred = pre_process_Sport5Dataset_for_score_test(self.valid, doc_limit=5)
+            if reverse == True:
+                self.train_chars.reverse()
+                self.train_labels.reverse()
+                self.train_pos.reverse()
+                self.train_types.reverse()
+                self.train_gender.reverse()
+                self.valid_chars.reverse()
+                self.valid_labels.reverse()
+                self.valid_pos.reverse()
+                self.valid_types.reverse()
+                self.valid_gender.reverse()
+                self.valid_chars.pop(0)
+                self.valid_labels.pop(0)
+                self.valid_pos.pop(0)
+                self.valid_types.pop(0)
+                self.valid_gender.pop(0)
+                self.valid_chars.extend(['_','\n'])
+                self.valid_labels.append(('O', 'S'))
+                self.valid_pos.append('_')
+                self.valid_types.append('_')
+                self.valid_gender.append('_')
+
+            actual_words, actual_pred = pre_process_Sport5Dataset_for_score_test(self.valid, doc_limit=None)
         else:
             raise NotImplementedError
 
@@ -94,7 +117,8 @@ class MEMM:
             probabilities_dict=self.train_probabilities,
             non_history_state=('O', 'S'),
             smoothing_factor_dict=self.smoothing_factor_dict,
-            feature_name_list=self.feature_name_list)
+            feature_name_list=self.feature_name_list,
+            reverse=reverse)
 
         model_name = 'MEMM_{0}_{1}_{2}_{3}_{4}'.format(str(dataset), str(self.number_of_history_chars), str(
             self.number_of_history_pos), str(self.number_of_history_types), str(self.number_of_history_labels))
@@ -400,7 +424,8 @@ class MEMM:
                      probabilities_dict,
                      non_history_state,
                      smoothing_factor_dict,
-                     feature_name_list):
+                     feature_name_list,
+                     reverse,):
         """
         :param feature_name_list:
         :param smoothing_factor_dict:
@@ -449,7 +474,8 @@ class MEMM:
 
                 temp_output_words, temp_output_pred = score.turn_char_predictions_to_word_predictions(obs_for_score,
                                                                                                       vt_res[1],
-                                                                                                      memm=True)
+                                                                                                      memm=True,
+                                                                                                      reverse=reverse)
                 output_words.extend(temp_output_words)
                 output_pred.extend(temp_output_pred)
                 num_of_processed_sent += 1
@@ -469,7 +495,9 @@ class MEMM:
                 temp_types.append(dataset_types[i])
                 if dataset_gender is not None:
                     temp_gender.append(dataset_gender[i])
-
+        if reverse == True:
+            output_words.reverse()
+            output_pred.reverse()
         return output_words, output_pred
 
 
