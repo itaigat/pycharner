@@ -1,5 +1,6 @@
 def pre_process_CoNLLDataset(dataset, row_limit=None, memm=False):
     """
+    :param memm:
     :param dataset: A Dataset object
     :param row_limit: number of rows to process
     :return: returns two lists:
@@ -58,7 +59,7 @@ def pre_process_CoNLLDataset(dataset, row_limit=None, memm=False):
         # Add spaces
         characters.append('_')
         # check if this is the correct state
-        if memm == True:
+        if memm:
             char_labels.append(('O', 'S'))
         else:
             char_labels.append(('O', 'F'))
@@ -118,8 +119,8 @@ def create_string_type_tagging(char_list):
 
     return char_type_list
 
-def pre_process_Sport5Dataset(dataset, doc_limit = None):
 
+def pre_process_Sport5Dataset(dataset, doc_limit=None):
     words_list = []
     word_labels = []
     features_dict = {}
@@ -151,7 +152,6 @@ def pre_process_Sport5Dataset(dataset, doc_limit = None):
     for j in range(len(words_list)):
         word = words_list[j]
         word_label = word_labels[j]
-
 
         if 'location' == word_label or 'country' == word_label or 'town' == word_label:
             word_label = 'LOC'
@@ -187,8 +187,8 @@ def pre_process_Sport5Dataset(dataset, doc_limit = None):
 
     return characters, char_labels, char_features
 
-def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit = None):
 
+def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit=None):
     words_list = []
     word_labels = []
 

@@ -16,7 +16,7 @@ def zfill_files(folder):
     maxlen = max([len(f) for f in files]) - 4
     for file in files:
         f_lst = file.split('.')
-        rename(path.join(folder, file), path.join(folder, f_lst[0].zfill(maxlen) + '.' + f_lst[1]))
+        rename(path.join(folder, file), path.join(folder, str(f_lst[0].zfill(maxlen)) + '.' + str(f_lst[1])))
 
 
 def print_sport_statistics(part='train'):

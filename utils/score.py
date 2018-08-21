@@ -77,6 +77,7 @@ def F1(predicted, true, e_type='ALL'):
 
 def turn_char_predictions_to_word_predictions(observations, char_predictions, memm=False, reverse=False):
     """
+    :param memm:
     :param observations: obs list as entered to the hmm viterbi
     :param char_predictions: list of prediction that is the viterbi output
     :return: list of words and list of word predictions
@@ -87,7 +88,7 @@ def turn_char_predictions_to_word_predictions(observations, char_predictions, me
     curr_word = ''
     curr_pred = ''
     for i in range(len(observations)):
-        if memm == True:
+        if memm:
             curr_char = observations[i][1][len(observations[i][1]) - 1]
         else:
             curr_char = observations[i][-1:]

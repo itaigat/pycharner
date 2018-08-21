@@ -1,4 +1,3 @@
-
 class Viterbi:
     @staticmethod
     def print(V):
@@ -16,12 +15,12 @@ class Viterbi:
             path[y] = [y]
         for t in range(1, len(obs)):
             V.append({})
-            newpath = {}
+            new_path = {}
             for y in states:
                 prob, state = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]], y0) for y0 in states])
                 V[t][y] = prob
-                newpath[y] = path[state] + [y]
-            path = newpath
+                new_path[y] = path[state] + [y]
+            path = new_path
 
         # Viterbi.print(V)
         prob, state = max([(V[len(obs) - 1][y], y) for y in states])
@@ -49,8 +48,8 @@ class Viterbi:
         V = [{}]
         path = {}
         for y in states:
-            if ((non_history_obs, y) in emit_p):
-                if (obs[0] in emit_p[(non_history_obs, y)]):
+            if (non_history_obs, y) in emit_p:
+                if obs[0] in emit_p[(non_history_obs, y)]:
                     V[0][y] = start_p[y] * emit_p[(non_history_obs, y)][obs[0]]
                 else:
                     V[0][y] = start_p[y] * emit_p[(non_history_obs, y)]['Smoothing Factor']
@@ -59,22 +58,22 @@ class Viterbi:
             path[y] = [y]
         print('Viterbi Number Of Obs:' + str(len(obs)))
         verge_factor = 10 ** (-150)
-        adjust_factor = 10 ** (149)
+        adjust_factor = 10 ** 149
         for t in range(1, len(obs)):
             if t % 50 == 0:
                 if all([val < verge_factor for val in V[t - 1].values()]):
                     # for probability not run to zero
-                    print('Makeing Proba Adjust')
+                    print('Making Probability Adjust')
                     for y0 in states:
-                        V[t - 1][y0] = V[t - 1][y0] * (adjust_factor)
+                        V[t - 1][y0] = V[t - 1][y0] * adjust_factor
             V.append({})
-            newpath = {}
+            new_path = {}
             for y in states:
                 max_prob = - 1
                 former_state = None
                 for y0 in states:
-                    if ((obs[t - 1], y) in emit_p):
-                        if (obs[t] in emit_p[(obs[t - 1], y)]):
+                    if (obs[t - 1], y) in emit_p:
+                        if obs[t] in emit_p[(obs[t - 1], y)]:
                             cur_prob = V[t - 1][y0] * trans_p[y0][y] * emit_p[(obs[t - 1], y)][obs[t]]
                         else:
                             cur_prob = V[t - 1][y0] * trans_p[y0][y] * emit_p[(obs[t - 1], y)]['Smoothing Factor']
@@ -85,9 +84,9 @@ class Viterbi:
                         max_prob = cur_prob
                         former_state = y0
                 V[t][y] = max_prob
-                newpath[y] = path[former_state] + [y]
+                new_path[y] = path[former_state] + [y]
 
-            path = newpath
+            path = new_path
 
         prob = -1
         for y in states:
@@ -101,12 +100,12 @@ class Viterbi:
         return prob, path[state]
 
     @staticmethod
-    def viterbi_for_memm(obs, states, train_probabilities, non_history_label ,number_of_history_labels,
+    def viterbi_for_memm(obs, states, train_probabilities, non_history_label, number_of_history_labels,
                          smoothing_factor_dict, feature_name_list, create_feature_from_observation):
         V = [{}]
         path = {}
         curr_obs = obs[0]
-        curr_obs_labels = tuple( [non_history_label] * number_of_history_labels )
+        curr_obs_labels = tuple([non_history_label] * number_of_history_labels)
         # curr_obs = tuple(curr_obs)
         # contains dict of tuples that guides in which feature and location to input label
         label_feature_input_dict = {}
@@ -119,7 +118,7 @@ class Viterbi:
                 for j in range(len(feature_kind)):
                     if 'Label' in feature_kind[j]:
                         if i not in label_feature_input_dict:
-                            label_feature_input_dict[i] = [(j,(-1)*int(feature_kind[j].split('_')[2]))]
+                            label_feature_input_dict[i] = [(j, (-1) * int(feature_kind[j].split('_')[2]))]
                         else:
                             label_feature_input_dict[i].append((j, (-1) * int(feature_kind[j].split('_')[2])))
             i += 1
@@ -153,25 +152,26 @@ class Viterbi:
             #     V[0][y] = 0.0
             path[y] = [y]
         print('Viterbi Number Of Obs:' + str(len(obs)))
-        verge_factor = 10**(-100)
-        adjust_factor = 10**(99)
+        verge_factor = 10 ** (-100)
+        adjust_factor = 10 ** 99
         for t in range(1, len(obs)):
             if t % 20 == 0:
                 if all([val < verge_factor for val in V[t - 1].values()]):
                     # for probability not run to zero
-                    print ('Makeing Proba Adjust')
+                    print('Making Probability Adjust')
                     for y0 in states:
-                        V[t - 1][y0] = V[t - 1][y0]*(adjust_factor)
+                        V[t - 1][y0] = V[t - 1][y0] * adjust_factor
             V.append({})
-            newpath = {}
+            new_path = {}
             curr_obs = obs[t]
             for y in states:
                 max_prob = - 1
                 former_state = None
                 for y0 in states:
-                    history_states = path[y0][t - number_of_history_labels :t][:]
+                    history_states = path[y0][t - number_of_history_labels:t][:]
                     if len(history_states) < number_of_history_labels:
-                        history_states = [non_history_label]*(number_of_history_labels - len(history_states)) + history_states
+                        history_states = [non_history_label] * (
+                                    number_of_history_labels - len(history_states)) + history_states
                     temp_curr_obs = curr_obs[:]
                     temp_curr_obs_labels = tuple(history_states)
                     # temp_curr_obs = tuple(temp_curr_obs)
@@ -207,9 +207,9 @@ class Viterbi:
                         max_prob = curr_prob
                         former_state = y0
                 V[t][y] = max_prob
-                newpath[y] = path[former_state] + [y]
+                new_path[y] = path[former_state] + [y]
 
-            path = newpath
+            path = new_path
 
         prob = -1
         for y in states:
