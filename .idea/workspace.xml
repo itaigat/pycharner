@@ -4,16 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list id="45ee7659-fbbe-403d-aa2c-fcbeead710ad" name="typos" comment="">
-      <change beforePath="$PROJECT_DIR$/models/algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/algorithms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
+    <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment=";;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/score.py" afterDir="false" />
     </list>
-    <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/MEMM.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/MEMM.py" afterDir="false" />
+    <list id="45ee7659-fbbe-403d-aa2c-fcbeead710ad" name="typos" comment="">
+      <change beforePath="$PROJECT_DIR$/utils/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/score.py" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,11 +31,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="score.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="algorithms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/algorithms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2512">
+              <caret line="52" column="79" lean-forward="true" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="score.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/score.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -56,32 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="algorithms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/algorithms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MEMM.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MEMM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/MEMM.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret lean-forward="true" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HMM.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/HMM.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -119,7 +115,7 @@
       <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
+            <state relative-caret-position="153">
               <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
@@ -186,13 +182,13 @@
         <option value="$PROJECT_DIR$/data/CoNLL2003/test.txt" />
         <option value="$PROJECT_DIR$/models/HMM.py" />
         <option value="$PROJECT_DIR$/models/paramaters.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/utils/decoder.py" />
         <option value="$PROJECT_DIR$/models/algorithms.py" />
         <option value="$PROJECT_DIR$/models/preprocess.py" />
         <option value="$PROJECT_DIR$/utils/common.py" />
-        <option value="$PROJECT_DIR$/utils/score.py" />
         <option value="$PROJECT_DIR$/models/MEMM.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/utils/score.py" />
       </list>
     </option>
   </component>
@@ -201,6 +197,15 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/utils/score.py">
+      <ranges>
+        <range start1="79" end1="79" start2="79" end2="80" changelist="45ee7659-fbbe-403d-aa2c-fcbeead710ad" />
+        <range start1="96" end1="97" start2="97" end2="98" changelist="443041a3-a890-4586-9b0a-58478c1bc3c3" />
+        <range start1="99" end1="100" start2="100" end2="101" changelist="443041a3-a890-4586-9b0a-58478c1bc3c3" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
@@ -817,7 +822,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534756731690</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary=";">
+      <created>1534837423309</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1534837423309</updated>
+    </task>
+    <task id="LOCAL-00023" summary=";;">
+      <created>1534837460884</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1534837460884</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -839,7 +858,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6388664" weight="0.32737032" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49716598" weight="0.3291592" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3291592" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49959514" weight="0.3291592" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49959514" visible="true" weight="0.3291592" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26234818" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" sideWeight="0.49959514" weight="0.3291592" />
@@ -912,27 +931,29 @@
     <MESSAGE value="Refactor" />
     <MESSAGE value="Statistics added" />
     <MESSAGE value="typos" />
-    <option name="LAST_COMMIT_MESSAGE" value="typos" />
+    <MESSAGE value=";" />
+    <MESSAGE value=";;" />
+    <option name="LAST_COMMIT_MESSAGE" value=";;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url />
           <line>8</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url />
           <line>128</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url />
           <line>74</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url />
           <line>137</line>
           <option name="timeStamp" value="53" />
@@ -1299,23 +1320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/HMM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
@@ -1333,13 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135">
@@ -1350,27 +1347,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/score.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1388,6 +1368,47 @@
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2512">
+          <caret line="52" column="79" lean-forward="true" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/score.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
