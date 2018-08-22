@@ -41,29 +41,27 @@ class MEMM:
                                                                                            memm=True)
 
             # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test, memm=True)
-            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=90,
-                                                                                           memm=True)
+            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None, memm=True)
             self.train_types = create_string_type_tagging(self.train_chars)
             self.train_gender = None
             self.valid_gender = None
-
-            actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=90)
+            self.valid_types = create_string_type_tagging(self.valid_chars)
+            actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
 
         elif dataset == 'Sport5':
             self.train = SportDataset(DatasetsPaths.Sport5, part='train', features=['root', 'binyan', 'gender'])
-            self.train_chars, self.train_labels, self.train_features = pre_process_Sport5Dataset(self.train)
-            self.train_pos = self.train_features['binyan']
-            self.train_types = self.train_features['root']
-            self.train_gender = self.train_features['gender']
+            self.train_chars, self.train_labels, self.train_featutres = pre_process_Sport5Dataset(self.train)
+            self.train_pos = self.train_featutres['binyan']
+            self.train_types = self.train_featutres['root']
+            self.train_gender = self.train_featutres['gender']
 
             self.valid = SportDataset(DatasetsPaths.Sport5, part='valid', features=['root', 'binyan', 'gender'])
-            self.valid_chars, self.valid_labels, self.valid_features = pre_process_Sport5Dataset(self.valid,
-                                                                                                 doc_limit=None)
-            self.valid_pos = self.valid_features['binyan']
-            self.valid_types = self.valid_features['root']
-            self.valid_gender = self.valid_features['gender']
+            self.valid_chars, self.valid_labels, self.valid_featutres = pre_process_Sport5Dataset(self.valid, doc_limit= None)
+            self.valid_pos = self.valid_featutres['binyan']
+            self.valid_types = self.valid_featutres['root']
+            self.valid_gender = self.valid_featutres['gender']
 
-            if reverse:
+            if reverse == True:
                 self.train_chars.reverse()
                 self.train_labels.reverse()
                 self.train_pos.reverse()
@@ -79,7 +77,7 @@ class MEMM:
                 self.valid_pos.pop(0)
                 self.valid_types.pop(0)
                 self.valid_gender.pop(0)
-                self.valid_chars.extend(['_', '\n'])
+                self.valid_chars.extend(['_','\n'])
                 self.valid_labels.append(('O', 'S'))
                 self.valid_pos.append('_')
                 self.valid_types.append('_')
@@ -88,6 +86,8 @@ class MEMM:
             actual_words, actual_pred = pre_process_Sport5Dataset_for_score_test(self.valid, doc_limit=None)
         else:
             raise NotImplementedError
+
+
 
         self.train_probabilities, self.smoothing_factor_dict = self.create_all_probabilities_for_viterbi(
             characters=self.train_chars,
@@ -102,7 +102,7 @@ class MEMM:
             feature_name_list=self.feature_name_list
         )
 
-        self.valid_types = create_string_type_tagging(self.valid_chars)
+
 
         output_words, output_pred = self.test_dataset(
             dataset_chars=self.valid_chars,
@@ -123,6 +123,8 @@ class MEMM:
         model_name = 'MEMM_{0}_{1}_{2}_{3}_{4}'.format(str(dataset), str(self.number_of_history_chars), str(
             self.number_of_history_pos), str(self.number_of_history_types), str(self.number_of_history_labels))
 
+
+
         score.check_all_results_parameters(model_name=model_name,
                                            output_words=output_words,
                                            actual_words=actual_words,
@@ -142,7 +144,6 @@ class MEMM:
                                              history_len_label,
                                              feature_name_list):
         """
-        :param char_gender:
         :param feature_name_list:
         :param characters: list of chars
         :param char_labels: list of cher's labels
@@ -158,8 +159,6 @@ class MEMM:
         state_obs_occurrences = {}
         obs_occurrences = {}
         all_features = []
-        history_gender_list = []
-
         all_states = list(set(char_labels))
         for state in all_states:
             state_obs_occurrences[state] = {}
@@ -202,7 +201,7 @@ class MEMM:
             if char_gender is not None:
                 feature_obs.append(tuple(history_gender_list))
 
-            feature_obs = tuple(feature_obs)
+            feature_obs= tuple(feature_obs)
 
             # counts for each state how many times each feature observation led to it
             for feature_kind in feature_name_list:
@@ -341,8 +340,8 @@ class MEMM:
                 self.number_of_gradient_decent_steps) + "]")
         return state_feature_weight_dict
 
-    @staticmethod
-    def create_obs_list(characters,
+    def create_obs_list(self,
+                        characters,
                         char_pos,
                         char_types,
                         char_gender,
@@ -351,7 +350,6 @@ class MEMM:
                         history_len_type,
                         feature_name_list):
         """
-        :param char_gender:
         :param feature_name_list:
         :param characters: list of chars
         :param char_pos: list of cher's word's part of speech
@@ -363,7 +361,6 @@ class MEMM:
         """
         observations = []
         obs_for_score = []
-        history_gender_list = []
         history_char_list = ['_'] * history_len_char
         history_pos_list = ['_'] * history_len_pos
         history_type_list = ['_'] * history_len_type
@@ -428,10 +425,8 @@ class MEMM:
                      non_history_state,
                      smoothing_factor_dict,
                      feature_name_list,
-                     reverse, ):
+                     reverse,):
         """
-        :param reverse:
-        :param dataset_gender:
         :param feature_name_list:
         :param smoothing_factor_dict:
         :param non_history_state:
@@ -500,7 +495,7 @@ class MEMM:
                 temp_types.append(dataset_types[i])
                 if dataset_gender is not None:
                     temp_gender.append(dataset_gender[i])
-        if reverse:
+        if reverse == True:
             output_words.reverse()
             output_pred.reverse()
         return output_words, output_pred
@@ -509,7 +504,7 @@ class MEMM:
 def create_feature_from_observation(feature_detail, observation, no_labels=False):
     """
      :param no_labels:
-     :param feature_detail: feature detail from feature name list
+     :param feature_detail: fature detail from feature name list
      :param observation: current observation
      :return: create required feature from current observation
      """

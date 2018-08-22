@@ -95,7 +95,7 @@ def turn_char_predictions_to_word_predictions(observations, char_predictions, me
             curr_char = observations[i][-1:]
         pred = char_predictions[i]
 
-        if curr_char == '_' or (reverse and i == len(observations) - 1):
+        if curr_char == '_':
             # when there is a space move to other word
             if curr_word != '':
                 if reverse:
@@ -113,6 +113,12 @@ def turn_char_predictions_to_word_predictions(observations, char_predictions, me
 
         if curr_pred != pred[0]:
             print('Unexpected prediction problem got:' + str(pred) + ' in same word of ' + curr_pred)
+
+    if curr_word != '':
+        if reverse == True:
+            curr_word = curr_word[::-1]
+        words.append(curr_word)
+        predictions.append(curr_pred)
 
     return words, predictions
 
@@ -133,6 +139,7 @@ def check_all_results_parameters(model_name,
     :return: creates report and and puts in the repository
     """
     if tuple(output_words) != tuple(actual_words):
+        print ("Output len:" + str(len(output_words)) + " Actual len:" + str(len(actual_words)))
         print('Word align critical problem !!')
     report_str = 'Run Summary:\nNumber of history chars in test:' + str(number_of_history_chars) + '\n'
 
