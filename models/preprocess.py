@@ -204,8 +204,14 @@ def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit=None):
     if len(words_list) != len(word_labels):
         print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
         raise ValueError
-
+    # list of indexs to remove due to empty strings
+    remove_indx_list = []
+    fix_index_list = []
     for j in range(len(word_labels)):
+        if words_list[j] == '':
+            remove_indx_list.append(j)
+        if ('_' in words_list[j]) and (len(words_list[j]) > 1):
+            fix_index_list.append(j)
         word_label = word_labels[j]
         if 'location' == word_label or 'country' == word_label or 'town' == word_label:
             word_label = 'LOC'
@@ -219,4 +225,20 @@ def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit=None):
             word_label = 'O'
         word_labels[j] = word_label
 
-    return words_list, word_labels
+    filtered_words_list = []
+    filtered_word_labels = []
+    for i in range(len(words_list)):
+        if i in remove_indx_list:
+            continue
+        elif i in fix_index_list:
+            # for specific case that '_' in middle of the word
+            broken_word = words_list[i].split('_')
+            filtered_words_list.append(broken_word[0])
+            filtered_words_list.append(broken_word[1])
+            filtered_word_labels.append(word_labels[i])
+            filtered_word_labels.append(word_labels[i])
+            continue
+        filtered_words_list.append(words_list[i])
+        filtered_word_labels.append(word_labels[i])
+
+    return filtered_words_list, filtered_word_labels
