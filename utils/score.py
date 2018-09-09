@@ -1,5 +1,6 @@
 types = ['MISC', 'ORG', 'PER', 'LOC']
 
+
 def precision(predicted, true, e_type='ALL'):
     """
     Returns the amount of relevant relevant retrieved documents divided by the amount of retrieved documents
