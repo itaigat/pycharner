@@ -1,3 +1,5 @@
+import datetime
+
 types = ['MISC', 'ORG', 'PER', 'LOC']
 
 
@@ -143,8 +145,10 @@ def check_all_results_parameters(model_name,
                                  actual_words,
                                  output_pred,
                                  actual_pred,
-                                 number_of_history_chars):
+                                 number_of_history_chars,
+                                 feature_list=''):
     """
+    :param feature_list: Add the feature list to the score file
     :param model_name: the model name (HMM and etc)
     :param output_words: the model output list of words
     :param actual_words: the actual list of words
@@ -171,5 +175,6 @@ def check_all_results_parameters(model_name,
         report_str += "Recall: " + str(r_score) + "\n F1 Score:" + str(f1_score) + "\n"
     print(str(report_str))
 
-    with open(str(model_name) + '_Run_Summary.txt', 'w') as f:
+    with open(str(model_name) + '_Run_Summary_' + str(datetime.datetime.now()) + '.txt', 'w') as f:
         f.write(report_str)
+        f.write(feature_list)

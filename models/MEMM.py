@@ -1,10 +1,7 @@
-from utils.decoder import CoNLLDataset
-from utils.decoder import SportDataset
+from utils.decoder import CoNLLDataset, SportDataset
 from utils import score
-from .preprocess import pre_process_CoNLLDataset
-from .preprocess import pre_process_CoNLLDataset_for_score_test
-from .preprocess import pre_process_Sport5Dataset
-from .preprocess import pre_process_Sport5Dataset_for_score_test
+from .preprocess import pre_process_CoNLLDataset, pre_process_CoNLLDataset_for_score_test
+from .preprocess import pre_process_Sport5Dataset, pre_process_Sport5Dataset_for_score_test
 from .preprocess import create_string_type_tagging
 from .paramaters import DatasetsPaths
 from models.algorithms import Viterbi
@@ -126,7 +123,8 @@ class MEMM:
                                            actual_words=actual_words,
                                            output_pred=output_pred,
                                            actual_pred=actual_pred,
-                                           number_of_history_chars=number_of_history_chars)
+                                           number_of_history_chars=number_of_history_chars,
+                                           feature_list=feature_name_list)
 
     def create_all_probabilities_for_viterbi(self,
                                              characters,
@@ -156,6 +154,7 @@ class MEMM:
         state_obs_occurrences = {}
         obs_occurrences = {}
         all_features = []
+        history_gender_list = []
         all_states = list(set(char_labels))
         for state in all_states:
             state_obs_occurrences[state] = {}
@@ -347,6 +346,7 @@ class MEMM:
                         history_len_type,
                         feature_name_list):
         """
+        :param char_gender:
         :param feature_name_list:
         :param characters: list of chars
         :param char_pos: list of cher's word's part of speech
@@ -358,6 +358,7 @@ class MEMM:
         """
         observations = []
         obs_for_score = []
+        history_gender_list = []
         history_char_list = ['_'] * history_len_char
         history_pos_list = ['_'] * history_len_pos
         history_type_list = ['_'] * history_len_type
@@ -503,7 +504,7 @@ class MEMM:
 def create_feature_from_observation(feature_detail, observation, no_labels=False):
     """
      :param no_labels:
-     :param feature_detail: fature detail from feature name list
+     :param feature_detail: feature detail from feature name list
      :param observation: current observation
      :return: create required feature from current observation
      """

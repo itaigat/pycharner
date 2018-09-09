@@ -9,7 +9,6 @@ if __name__ == "__main__":
     # for i in range(2, 7):
     #     tst = HMM(number_of_history_chars=i, dataset='CoNLL2003', model_name= 'NumOfHistoryTry' + str(i))
     # nv = NaiveClassifier()
-    #
 
     feature_name_list = [('0_Label_1', '3_Type_1', '3_Type_2', '1_Char_3', '1_Char_4', '1_Char_5', '1_Char_6',
                           '1_Char_7', '2_Pos_1', '2_Pos_4', '2_Pos_5', '2_Pos_6', '2_Pos_7'),
