@@ -4,13 +4,17 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment=";;">
+    <list default="true" id="443041a3-a890-4586-9b0a-58478c1bc3c3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/HMM.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/HMM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MEMM.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/MEMM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/preprocess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/score.py" afterDir="false" />
     </list>
-    <list id="45ee7659-fbbe-403d-aa2c-fcbeead710ad" name="typos" comment="">
-      <change beforePath="$PROJECT_DIR$/utils/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/score.py" afterDir="false" />
-    </list>
+    <list id="45ee7659-fbbe-403d-aa2c-fcbeead710ad" name="typos" comment="" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,6 +26,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/pycharner$main.coverage" NAME="main Coverage Results" MODIFIED="1534753231879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pycharner$decoder.coverage" NAME="decoder Coverage Results" MODIFIED="1532978075335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/pycharner$part1.coverage" NAME="part1 Coverage Results" MODIFIED="1534839134706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -31,55 +36,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="algorithms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/algorithms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2512">
-              <caret line="52" column="79" lean-forward="true" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="score.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/score.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/common.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MEMM.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/MEMM.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +51,17 @@
       <file leaf-file-name="NaiveClassifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/NaiveClassifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="21">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/1712808159/builtins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="430">
+              <caret line="3628" column="8" selection-start-line="3628" selection-start-column="8" selection-end-line="3628" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -103,11 +75,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="decoder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/decoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            <state relative-caret-position="543">
+              <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="algorithms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/algorithms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-367">
+              <caret line="190" column="37" lean-forward="true" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="score.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/score.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2277">
+              <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/common.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-222">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MEMM.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/MEMM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,20 +132,8 @@
       <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="decoder.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/decoder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="313">
+              <caret line="216" column="25" lean-forward="true" selection-start-line="216" selection-start-column="25" selection-end-line="222" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -163,6 +168,10 @@
       <find>organiz</find>
       <find>sentence</find>
       <find>new</find>
+      <find>output</find>
+      <find>num</find>
+      <find>valid</find>
+      <find>format</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,15 +189,16 @@
         <option value="$PROJECT_DIR$/models/naive.py" />
         <option value="$PROJECT_DIR$/models/NaiveClassifier.py" />
         <option value="$PROJECT_DIR$/data/CoNLL2003/test.txt" />
-        <option value="$PROJECT_DIR$/models/HMM.py" />
         <option value="$PROJECT_DIR$/models/paramaters.py" />
         <option value="$PROJECT_DIR$/utils/decoder.py" />
-        <option value="$PROJECT_DIR$/models/algorithms.py" />
-        <option value="$PROJECT_DIR$/models/preprocess.py" />
         <option value="$PROJECT_DIR$/utils/common.py" />
+        <option value="$USER_HOME$/Downloads/part1.py" />
+        <option value="$PROJECT_DIR$/models/HMM.py" />
+        <option value="$PROJECT_DIR$/models/preprocess.py" />
+        <option value="$PROJECT_DIR$/models/algorithms.py" />
         <option value="$PROJECT_DIR$/models/MEMM.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/utils/score.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -198,20 +208,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/utils/score.py">
-      <ranges>
-        <range start1="79" end1="79" start2="79" end2="80" changelist="45ee7659-fbbe-403d-aa2c-fcbeead710ad" />
-        <range start1="96" end1="97" start2="97" end2="98" changelist="443041a3-a890-4586-9b0a-58478c1bc3c3" />
-        <range start1="99" end1="100" start2="100" end2="101" changelist="443041a3-a890-4586-9b0a-58478c1bc3c3" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="y" value="-15" />
-    <option name="width" value="3235" />
-    <option name="height" value="1735" />
+    <option name="x" value="3585" />
+    <option name="y" value="-25" />
+    <option name="width" value="1294" />
+    <option name="height" value="694" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -225,30 +226,6 @@
             <path>
               <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="CoNLL2003" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="Sport5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycharner" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="Sport5" type="462c0819:PsiDirectoryNode" />
-              <item name="schema" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pycharner" type="b2602c69:ProjectViewProjectNode" />
@@ -280,119 +257,6 @@
       <recent name="C:\Users\Itai Gat\Documents\Technion\18B\ML\Project\pycharner\models" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/main.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/models/MEMM.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/models/preprocess.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/utils/score.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -405,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.part1">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -459,6 +323,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="part1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pycharner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/part1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -656,9 +539,11 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.decoder" />
+      <item itemvalue="Python.part1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.part1" />
         <item itemvalue="Python.decoder" />
       </list>
     </recent_temporary>
@@ -836,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534837460884</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary=";;">
+      <created>1534837845625</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1534837845625</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -849,31 +741,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
+    <frame x="3192" y="-8" width="1936" height="1015" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50040483" side_tool="true" weight="0.3291592" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6388664" weight="0.32737032" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49716598" weight="0.3291592" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3291592" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49959514" visible="true" weight="0.3291592" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26234818" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6388664" weight="0.32737032" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49959514" visible="true" weight="0.20980616" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19189766" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection Results" sideWeight="0.49959514" weight="0.3291592" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49878544" weight="0.3291592" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4979757" weight="0.39534885" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4979757" weight="0.39534885" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection Results" order="9" sideWeight="0.49959514" weight="0.3291592" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49878544" weight="0.3291592" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1023,34 +915,13 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/paramaters.py">
+    <entry file="file://$PROJECT_DIR$/utils/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/MEMM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/HMM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="2567">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1311,21 +1182,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pip-9.0.1-py3.5.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="527">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/mongo_corr.py" />
+    <entry file="file://$USER_HOME$/Downloads/part2.1.2.py" />
+    <entry file="file://$USER_HOME$/Downloads/part1.py" />
+    <entry file="file://$PROJECT_DIR$/models/HMM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1625">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-367">
+          <caret line="190" column="37" lean-forward="true" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/NaiveClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/1712808159/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="3628" column="8" selection-start-line="3628" selection-start-column="8" selection-end-line="3628" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/MEMM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/HMM.py">
+    <entry file="file://$PROJECT_DIR$/models/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+        <state relative-caret-position="313">
+          <caret line="216" column="25" lean-forward="true" selection-start-line="216" selection-start-column="25" selection-end-line="222" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1339,76 +1256,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
+        <state relative-caret-position="543">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/utils/score.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/NaiveClassifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/MEMM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2277">
+          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2512">
-          <caret line="52" column="79" lean-forward="true" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/score.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

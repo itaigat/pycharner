@@ -21,6 +21,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="transition_dict" />
+          <option value="main.spark_sklearn" />
         </list>
       </option>
     </inspection_tool>

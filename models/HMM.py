@@ -67,6 +67,7 @@ class HMM:
         emission_dict = {}
         observations_state_counter_dict = {}
 
+        num_of_unique_chars = 0
         total_chars = 0.0
         all_initions = 0.0
         all_states = list(set(char_labels))

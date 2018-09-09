@@ -1,3 +1,5 @@
+types = ['MISC', 'ORG', 'PER', 'LOC']
+
 def precision(predicted, true, e_type='ALL'):
     """
     Returns the amount of relevant relevant retrieved documents divided by the amount of retrieved documents
@@ -14,14 +16,20 @@ def precision(predicted, true, e_type='ALL'):
         return 0.0
 
     if e_type == 'ALL':
-        for i in range(len(predicted)):
+        for i, value in enumerate(predicted):
             if predicted[i] == true[i] != 'O':
                 true_counter += 1
             if predicted[i] != 'O':
                 retrieved_counter += 1
         # retrieved_counter = len(predicted)
+    elif e_type == 'BINARY':
+        for i, value in enumerate(predicted):
+            if predicted[i] in types and true[i] in types:
+                true_counter += 1
+            if predicted[i] in types:
+                retrieved_counter += 1
     else:
-        for i in range(len(predicted)):
+        for i, value in enumerate(predicted):
             if predicted[i] == e_type:
                 retrieved_counter += 1
                 if predicted[i] == true[i]:
@@ -51,6 +59,12 @@ def recall(predicted, true, e_type='ALL'):
             if true[i] != 'O':
                 relevant_counter += 1
         # relevant_counter = len(true)
+    elif e_type == 'BINARY':
+        for i, value in enumerate(predicted):
+            if predicted[i] in types and true[i] in types:
+                true_counter += 1
+            if true[i] in types:
+                relevant_counter += 1
     else:
         for i in range(len(predicted)):
             if predicted[i] == true[i] == e_type:
@@ -112,10 +126,10 @@ def turn_char_predictions_to_word_predictions(observations, char_predictions, me
         curr_word += curr_char
 
         if curr_pred != pred[0]:
-            print('Unexpected prediction problem got:' + str(pred) + ' in same word of ' + curr_pred)
+            print('Unexpected prediction problem got: {0} in same word of {1}'.format(str(pred), curr_pred))
 
     if curr_word != '':
-        if reverse == True:
+        if reverse:
             curr_word = curr_word[::-1]
         words.append(curr_word)
         predictions.append(curr_pred)
@@ -138,17 +152,22 @@ def check_all_results_parameters(model_name,
     :param number_of_history_chars: number of history characters
     :return: creates report and and puts in the repository
     """
-    if tuple(output_words) != tuple(actual_words):
-        print ("Output len:" + str(len(output_words)) + " Actual len:" + str(len(actual_words)))
-        print('Word align critical problem !!')
-    report_str = 'Run Summary:\nNumber of history chars in test:' + str(number_of_history_chars) + '\n'
+    prediction_types = list(set(actual_pred))
+    prediction_types.append('ALL')
+    prediction_types.append('BINARY')
 
-    for label_type in (list(set(actual_pred)) + ['ALL']):
+    if tuple(output_words) != tuple(actual_words):
+        print("Output len:" + str(len(output_words)) + " Actual len:" + str(len(actual_words)))
+        print('Word align critical problem !!')
+
+    report_str = 'Run Summary:\n Number of history chars in test:' + str(number_of_history_chars) + '\n'
+
+    for label_type in prediction_types:
         p_score = precision(output_pred, actual_pred, e_type=label_type)
         r_score = recall(output_pred, actual_pred, e_type=label_type)
         f1_score = F1(output_pred, actual_pred, e_type=label_type)
-        report_str += "For " + str(label_type) + ":\nPrecision: " + str(p_score) + "\n"
-        report_str += "Recall: " + str(r_score) + "\nF1 Score:" + str(f1_score) + "\n"
+        report_str += "For " + str(label_type) + ": \n Precision: " + str(p_score) + "\n"
+        report_str += "Recall: " + str(r_score) + "\n F1 Score:" + str(f1_score) + "\n"
     print(str(report_str))
 
     with open(str(model_name) + '_Run_Summary.txt', 'w') as f:

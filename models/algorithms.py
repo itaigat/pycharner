@@ -45,6 +45,7 @@ class Viterbi:
 
     @staticmethod
     def viterbi_for_hmm(obs, states, start_p, trans_p, emit_p, non_history_obs, smoothing_factor):
+        state = None
         V = [{}]
         path = {}
         for y in states:

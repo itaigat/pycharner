@@ -24,7 +24,7 @@ def pre_process_CoNLLDataset(dataset, row_limit=None, memm=False):
         word_pos.extend(rows[i + 2].split(' ') + ['\n'])
 
     if len(words) != len(word_labels):
-        print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
+        print('pre_process_CoNLLDataset problem - words and word labels are not aligned')
         raise ValueError
 
     characters = []
@@ -139,7 +139,7 @@ def pre_process_Sport5Dataset(dataset, doc_limit=None):
             break
 
     if len(words_list) != len(word_labels):
-        print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
+        print('pre_process_CoNLLDataset problem - words and word labels are not aligned')
         raise ValueError
 
     characters = []
@@ -194,22 +194,22 @@ def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit=None):
 
     docs_processed = 0
     for words, tags, features in dataset:
-        words_list.extend(words )
-        word_labels.extend(tags )
+        words_list.extend(words)
+        word_labels.extend(tags)
 
         docs_processed += 1
         if doc_limit is not None and docs_processed >= doc_limit:
             break
 
     if len(words_list) != len(word_labels):
-        print('pre_process_CoNLLDataset problem - words and word labels are not alienged')
+        print('pre_process_CoNLLDataset problem - words and word labels are not aligned')
         raise ValueError
-    # list of indexs to remove due to empty strings
-    remove_indx_list = []
+    # list of indexes to remove due to empty strings
+    remove_index_list = []
     fix_index_list = []
     for j in range(len(word_labels)):
         if words_list[j] == '':
-            remove_indx_list.append(j)
+            remove_index_list.append(j)
         if ('_' in words_list[j]) and (len(words_list[j]) > 1):
             fix_index_list.append(j)
         word_label = word_labels[j]
@@ -228,7 +228,7 @@ def pre_process_Sport5Dataset_for_score_test(dataset, doc_limit=None):
     filtered_words_list = []
     filtered_word_labels = []
     for i in range(len(words_list)):
-        if i in remove_indx_list:
+        if i in remove_index_list:
             continue
         elif i in fix_index_list:
             # for specific case that '_' in middle of the word
