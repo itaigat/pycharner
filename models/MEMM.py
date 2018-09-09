@@ -52,16 +52,16 @@ class MEMM:
         elif dataset == 'Sport5':
             self.train = SportDataset(DatasetsPaths.Sport5, part='train', features=['root', 'binyan', 'gender'])
             self.train_chars, self.train_labels, self.train_features = pre_process_Sport5Dataset(self.train)
-            self.train_pos = self.train_featutres['binyan']
-            self.train_types = self.train_featutres['root']
-            self.train_gender = self.train_featutres['gender']
+            self.train_pos = self.train_features['binyan']
+            self.train_types = self.train_features['root']
+            self.train_gender = self.train_features['gender']
 
             self.valid = SportDataset(DatasetsPaths.Sport5, part='valid', features=['root', 'binyan', 'gender'])
             self.valid_chars, self.valid_labels, self.valid_features = pre_process_Sport5Dataset(self.valid,
                                                                                                  doc_limit=None)
-            self.valid_pos = self.valid_featutres['binyan']
-            self.valid_types = self.valid_featutres['root']
-            self.valid_gender = self.valid_featutres['gender']
+            self.valid_pos = self.valid_features['binyan']
+            self.valid_types = self.valid_features['root']
+            self.valid_gender = self.valid_features['gender']
 
             if reverse:
                 self.train_chars.reverse()
