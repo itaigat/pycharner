@@ -171,8 +171,10 @@ def check_all_results_parameters(model_name,
         p_score = precision(output_pred, actual_pred, e_type=label_type)
         r_score = recall(output_pred, actual_pred, e_type=label_type)
         f1_score = F1(output_pred, actual_pred, e_type=label_type)
-        report_str += "For " + str(label_type) + ":\n Precision: " + str(p_score) + "\n"
-        report_str += "Recall: " + str(r_score) + "\n F1 Score:" + str(f1_score) + "\n"
+        report_str += "For " + str(label_type) + ":\n"
+        report_str += "Precision: " + str(p_score) + "\n"
+        report_str += "Recall: " + str(r_score) + "\n"
+        report_str += "F1 Score:" + str(f1_score) + "\n"
     print(str(report_str))
 
     with open(str(model_name) + '_Run_Summary_' + str(datetime.datetime.now()) + '.txt', 'w') as f:
