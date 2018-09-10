@@ -85,8 +85,8 @@
       <file leaf-file-name="score.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/score.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="179" column="33" selection-start-line="179" selection-start-column="33" selection-end-line="179" selection-end-column="33" />
+            <state relative-caret-position="123">
+              <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -752,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536492833680</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Doc write fixed">
+      <created>1536585156235</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1536585156236</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView">
@@ -853,7 +860,8 @@
     <MESSAGE value="Binary score PEP fixed" />
     <MESSAGE value="Sport5 features fixed" />
     <MESSAGE value="Score log with date" />
-    <option name="LAST_COMMIT_MESSAGE" value="Score log with date" />
+    <MESSAGE value="Doc write fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doc write fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1287,8 +1295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/score.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="179" column="33" selection-start-line="179" selection-start-column="33" selection-end-line="179" selection-end-column="33" />
+        <state relative-caret-position="123">
+          <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
         </state>
       </provider>
     </entry>
