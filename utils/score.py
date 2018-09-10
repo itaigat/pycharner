@@ -177,4 +177,4 @@ def check_all_results_parameters(model_name,
 
     with open(str(model_name) + '_Run_Summary_' + str(datetime.datetime.now()) + '.txt', 'w') as f:
         f.write(report_str)
-        f.write(feature_list)
+        f.write(str(feature_list))
