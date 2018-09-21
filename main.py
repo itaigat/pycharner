@@ -15,10 +15,10 @@ if __name__ == "__main__":
                          ('0_Label_1', '3_Type_1', '3_Type_2', '1_Char_3', '1_Char_4', '1_Char_5', '2_Pos_1', '2_Pos_4',
                           '2_Pos_5'),
                          ('0_Label_1', '1_Char_1', '1_Char_3', '1_Char_3'),
-                         # ('3_Type_1', '0_Label_1','2_Pos_1')
+                         ('3_Type_1', '0_Label_1','2_Pos_1', '1_Char_1')
                          ]
     # feature_name_list = [('0_Label_1', '0_Label_2', '0_Label_3', '0_Label_4'),
-    #                      ('0_Label_1', '0_Label_2', '0_Label_3', '3_Type_1' ,'2_Pos_1', '2_Pos_2','2_Pos_3')]
+                         # ('0_Label_1', '0_Label_2', '0_Label_3', '3_Type_1' ,'2_Pos_1', '2_Pos_2','2_Pos_3')]
 
     tst = MEMM(number_of_history_chars=7,
                number_of_history_pos=7,
