@@ -3,6 +3,7 @@ from utils import score
 from .preprocess import pre_process_CoNLLDataset, pre_process_CoNLLDataset_for_score_test
 from .preprocess import pre_process_Sport5Dataset, pre_process_Sport5Dataset_for_score_test
 from .preprocess import create_string_type_tagging
+from .preprocess import create_string_type_tagging_word_base
 from .paramaters import DatasetsPaths
 from models.algorithms import Viterbi
 from math import exp
@@ -17,7 +18,8 @@ class MEMM:
                  regularization_factor,
                  feature_name_list,
                  dataset='CoNLL2003',
-                 reverse=False):
+                 reverse=False,
+                 word_based_types=False):
         self.number_of_history_chars = number_of_history_chars
         self.number_of_history_pos = number_of_history_pos
         self.number_of_history_types = number_of_history_types
@@ -34,16 +36,22 @@ class MEMM:
             self.valid = CoNLLDataset(DatasetsPaths.CoNLLDataset_valid_path)
 
             self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train, memm=True)
-            self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None,
-                                                                                           memm=True)
+            # self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None,
+            #                                                                                memm=True)
 
             # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test, memm=True)
             self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None,
                                                                                            memm=True)
-            self.train_types = create_string_type_tagging(self.train_chars)
+            if word_based_types != True:
+                self.train_types = create_string_type_tagging(self.train_chars)
+                self.valid_types = create_string_type_tagging(self.valid_chars)
+            else:
+                self.train_types = create_string_type_tagging_word_base(self.train_chars)
+                self.valid_types = create_string_type_tagging_word_base(self.valid_chars)
+            # self.train_types = create_string_type_tagging(self.train_chars)
             self.train_gender = None
             self.valid_gender = None
-            self.valid_types = create_string_type_tagging(self.valid_chars)
+            # self.valid_types = create_string_type_tagging(self.valid_chars)
             actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
 
         elif dataset == 'Sport5':

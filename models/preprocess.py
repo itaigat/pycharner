@@ -119,6 +119,41 @@ def create_string_type_tagging(char_list):
 
     return char_type_list
 
+def create_string_type_tagging_word_base(char_list):
+    """
+    :param char_list: list of characters
+    :return: a list with the characters types that are word based
+    """
+    char_type_list = []
+    temp_word_len = 0
+    temp_word_type = ''
+    for char in char_list:
+
+        if char == '_' or char == '\n':
+            char_type_list.extend(([temp_word_type] * temp_word_len) + ['_'] )
+            temp_word_len = 0
+            temp_word_type = ''
+            continue
+
+        if char.isupper():
+            if temp_word_type[-1:] != 'X':
+                temp_word_type += 'X'
+        elif char.islower():
+            if temp_word_type[-1:] != 'x':
+                temp_word_type += 'x'
+        elif char.isdigit():
+            if temp_word_type[-1:] != 'd':
+                temp_word_type += 'd'
+        else:
+            if temp_word_type[-1:] != char:
+                temp_word_type += char
+
+        temp_word_len += 1
+
+    if len(char_type_list) != len(char_list):
+        print ("len(char_type_list) != len(char_list)")
+
+    return char_type_list
 
 def pre_process_Sport5Dataset(dataset, doc_limit=None):
     words_list = []
