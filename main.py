@@ -20,26 +20,27 @@ if __name__ == "__main__":
     # feature_name_list = [('0_Label_1', '0_Label_2', '0_Label_3', '0_Label_4'),
                          # ('0_Label_1', '0_Label_2', '0_Label_3', '3_Type_1' ,'2_Pos_1', '2_Pos_2','2_Pos_3')]
 
-    tst = MEMM(number_of_history_chars=7,
-               number_of_history_pos=7,
-               number_of_history_types=4,
-               number_of_history_labels=5,
-               regularization_factor=2.0,
-               feature_name_list=feature_name_list,
-               dataset='CoNLL2003',
-               word_based_types=True,
-               test=True)
-
-    # feature_name_list_hebrew = [('0_Label_1', '1_Char_1', '1_Char_2', '1_Char_3'),
-    #                             ('0_Label_1', '2_Binyan_1', '2_Binyan_4', '2_Binyan_5'),
-    #                             ('0_Label_1', '4_Gender_1', '4_Gender_2')
-    #                             ]
-    #
     # tst = MEMM(number_of_history_chars=7,
     #            number_of_history_pos=7,
     #            number_of_history_types=4,
-    #            number_of_history_labels=2,
+    #            number_of_history_labels=5,
     #            regularization_factor=2.0,
-    #            feature_name_list=feature_name_list_hebrew,
-    #            dataset='Sport5',
-    #            reverse=True)
+    #            feature_name_list=feature_name_list,
+    #            dataset='CoNLL2003',
+    #            word_based_types=True,
+    #            test=True)
+
+    feature_name_list_hebrew = [('0_Label_1', '1_Char_1', '1_Char_2', '1_Char_3'),
+                                # ('0_Label_1', '2_Binyan_1', '2_Binyan_4', '2_Binyan_5'),
+                                # ('0_Label_1', '4_Gender_1', '4_Gender_2')
+                                ]
+
+    tst = MEMM(number_of_history_chars=7,
+               number_of_history_pos=7,
+               number_of_history_types=4,
+               number_of_history_labels=2,
+               regularization_factor=2.0,
+               feature_name_list=feature_name_list_hebrew,
+               dataset='Sport5',
+               reverse=True,
+               test =True)
