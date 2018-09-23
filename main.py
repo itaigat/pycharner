@@ -15,7 +15,7 @@ if __name__ == "__main__":
                          ('0_Label_1', '3_Type_1', '3_Type_2', '1_Char_3', '1_Char_4', '1_Char_5', '2_Pos_1', '2_Pos_4',
                           '2_Pos_5'),
                          ('0_Label_1', '1_Char_1', '1_Char_2', '1_Char_3'),
-                         # ('3_Type_1', '0_Label_1','2_Pos_1', '1_Char_1')
+                         ('3_Type_1', '0_Label_1','2_Pos_1', '1_Char_1')
                          ]
     # feature_name_list = [('0_Label_1', '0_Label_2', '0_Label_3', '0_Label_4'),
                          # ('0_Label_1', '0_Label_2', '0_Label_3', '3_Type_1' ,'2_Pos_1', '2_Pos_2','2_Pos_3')]
@@ -27,7 +27,8 @@ if __name__ == "__main__":
                regularization_factor=2.0,
                feature_name_list=feature_name_list,
                dataset='CoNLL2003',
-               word_based_types=True)
+               word_based_types=True,
+               test=True)
 
     # feature_name_list_hebrew = [('0_Label_1', '1_Char_1', '1_Char_2', '1_Char_3'),
     #                             ('0_Label_1', '2_Binyan_1', '2_Binyan_4', '2_Binyan_5'),

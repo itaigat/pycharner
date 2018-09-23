@@ -19,7 +19,8 @@ class MEMM:
                  feature_name_list,
                  dataset='CoNLL2003',
                  reverse=False,
-                 word_based_types=False):
+                 word_based_types=False,
+                 test=False):
         self.number_of_history_chars = number_of_history_chars
         self.number_of_history_pos = number_of_history_pos
         self.number_of_history_types = number_of_history_types
@@ -32,14 +33,15 @@ class MEMM:
         # '0_Label'
         if dataset == 'CoNLL2003':
             self.train = CoNLLDataset(DatasetsPaths.CoNLLDataset_train_path)
-            self.test = CoNLLDataset(DatasetsPaths.CoNLLDataset_test_path)
-            self.valid = CoNLLDataset(DatasetsPaths.CoNLLDataset_valid_path)
+            if test == True:
+                self.valid = CoNLLDataset(DatasetsPaths.CoNLLDataset_test_path)
+            else:
+                self.valid = CoNLLDataset(DatasetsPaths.CoNLLDataset_valid_path)
 
             self.train_chars, self.train_labels, self.train_pos = pre_process_CoNLLDataset(self.train, memm=True)
             # self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None,
             #                                                                                memm=True)
 
-            # self.test_chars, self.test_labels, self.test_pos = pre_process_CoNLLDataset(self.test, memm=True)
             self.valid_chars, self.valid_labels, self.valid_pos = pre_process_CoNLLDataset(self.valid, row_limit=None,
                                                                                            memm=True)
             if word_based_types != True:
@@ -52,6 +54,7 @@ class MEMM:
             self.train_gender = None
             self.valid_gender = None
             # self.valid_types = create_string_type_tagging(self.valid_chars)
+
             actual_words, actual_pred = pre_process_CoNLLDataset_for_score_test(self.valid, row_limit=None)
 
         elif dataset == 'Sport5':
@@ -60,8 +63,10 @@ class MEMM:
             self.train_pos = self.train_features['binyan']
             self.train_types = self.train_features['root']
             self.train_gender = self.train_features['gender']
-
-            self.valid = SportDataset(DatasetsPaths.Sport5, part='valid', features=['root', 'binyan', 'gender'])
+            if test == True:
+                self.valid = SportDataset(DatasetsPaths.Sport5, part='test', features=['root', 'binyan', 'gender'])
+            else:
+                self.valid = SportDataset(DatasetsPaths.Sport5, part='valid', features=['root', 'binyan', 'gender'])
             self.valid_chars, self.valid_labels, self.valid_features = pre_process_Sport5Dataset(self.valid,
                                                                                                  doc_limit=None)
             self.valid_pos = self.valid_features['binyan']
@@ -125,7 +130,8 @@ class MEMM:
 
         model_name = 'MEMM_{0}_{1}_{2}_{3}_{4}'.format(str(dataset), str(self.number_of_history_chars), str(
             self.number_of_history_pos), str(self.number_of_history_types), str(self.number_of_history_labels))
-
+        if test == True:
+            model_name = 'Test_' + model_name
         score.check_all_results_parameters(model_name=model_name,
                                            output_words=output_words,
                                            actual_words=actual_words,
